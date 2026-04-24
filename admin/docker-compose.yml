@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    container_name: fe_admin_container
+    ports:
+      - "8668:8668"
+    restart: unless-stopped

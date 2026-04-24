@@ -1,0 +1,118 @@
+<section id="user-details-subs" class="mt-6 space-y-6">
+
+    <!-- ===== TITLE ===== -->
+    <div class="flex items-center justify-between">
+        <div>
+            <h2 class="text-2xl font-bold text-slate-100">
+                User Subscription Management
+            </h2>
+            <p class="text-sm text-slate-400">
+                Overview & control of all subscription plans
+            </p>
+        </div>
+    </div>
+
+    <!-- ===== STATISTICS ===== -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="bg-[#020617] border border-slate-800 rounded-xl p-5">
+            <p class="text-xs text-slate-400 uppercase">Total Subscriptions</p>
+            <p id="subs-total" class="mt-2 text-2xl font-semibold text-slate-100">--</p>
+        </div>
+
+        <div class="bg-[#020617] border border-slate-800 rounded-xl p-5">
+            <p class="text-xs text-slate-400 uppercase">Total Value</p>
+            <p id="subs-total-value" class="mt-2 text-2xl font-semibold text-blue-400">--</p>
+        </div>
+
+        <div class="bg-[#020617] border border-slate-800 rounded-xl p-5">
+            <p class="text-xs text-slate-400 uppercase">Active</p>
+            <p id="subs-active-total" class="mt-2 text-2xl font-semibold text-emerald-400">--</p>
+        </div>
+
+        <div class="bg-[#020617] border border-slate-800 rounded-xl p-5">
+            <p class="text-xs text-slate-400 uppercase">Expired</p>
+            <p id="subs-expire-total" class="mt-2 text-2xl font-semibold text-gray-400">--</p>
+        </div>
+    </div>
+
+    <!-- ===== FILTERS ===== -->
+    <div class="bg-[#0f172a] border border-slate-800 rounded-xl p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <!-- Status -->
+        <div class="flex flex-col gap-1">
+            <label class="text-xs font-medium text-slate-400">
+                Subscription Status
+            </label>
+            <select class="bg-[#020617] border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 focus:ring-2 focus:ring-indigo-500">
+                <option value="">All statuses</option>
+                <option value="1">Active</option>
+                <option value="2">Expired</option>
+                <option value="3">Revoked</option>
+            </select>
+        </div>
+
+        <!-- Duration -->
+        <div class="flex flex-col gap-1">
+            <label class="text-xs font-medium text-slate-400">
+                Plan Duration
+            </label>
+            <select class="bg-[#020617] border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200">
+                <option value="">All durations</option>
+                <option value="365">365 days</option>
+                <option value="180">180 days</option>
+                <option value="30">30 days</option>
+            </select>
+        </div>
+
+        <!-- Price -->
+        <div class="flex flex-col gap-1">
+            <label class="text-xs font-medium text-slate-400">
+                Price Range
+            </label>
+            <select class="bg-[#020617] border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200">
+                <option value="">All prices</option>
+                <option value="desc">Highest first</option>
+                <option value="asc">Lowest first</option>
+            </select>
+        </div>
+
+        <!-- Registration Date -->
+        <div class="flex flex-col gap-1">
+            <label class="text-xs font-medium text-slate-400">
+                Created Date
+            </label>
+            <select class="bg-[#020617] border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200">
+                <option value="">Newest first</option>
+                <option value="desc">Newest → Oldest</option>
+                <option value="asc">Oldest → Newest</option>
+            </select>
+        </div>
+
+    </div>
+
+    <!-- ===== TABLE ===== -->
+    <div class="bg-[#0f172a] border border-slate-800 rounded-xl overflow-hidden">
+        <table class="w-full text-sm">
+
+            <!-- TABLE HEAD (SÁNG HƠN) -->
+            <thead class="bg-slate-900 text-slate-200 text-xs border-b border-slate-700">
+            <tr>
+                <th class="px-6 py-4 text-left">Plan Price</th>
+                <th class="px-6 py-4 text-left">Duration (Days)</th>
+                <th class="px-6 py-4 text-left">Start Date</th>
+                <th class="px-6 py-4 text-left">End Date</th>
+                <th class="px-6 py-4 text-left">Status</th>
+                <th class="px-6 py-4 text-left">Registration date</th>
+                <th class="px-6 py-4 text-right">Actions</th>
+            </tr>
+            </thead>
+
+            <!-- TABLE BODY (TỐI HƠN) -->
+            <tbody class="divide-y divide-slate-800 bg-[#020617]" id="subs-data-list-table">
+            <!--  Append data -->
+            </tbody>
+
+        </table>
+    </div>
+
+</section>

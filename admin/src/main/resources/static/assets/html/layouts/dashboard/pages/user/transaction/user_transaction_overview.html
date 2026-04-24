@@ -1,0 +1,295 @@
+<section class="bg-gray-900 border border-gray-800 rounded-3xl p-10 space-y-8 mt-10">
+
+    <!-- TITLE -->
+    <header class="flex items-start gap-4">
+        <!-- Title -->
+        <div>
+            <div class="flex gap-4 justify-start">
+                <h1 class="text-4xl font-bold text-white">
+                    User Wallet's
+                </h1>
+                <!-- Wallet icon -->
+                <div class="flex h-12 w-12 items-center justify-center rounded-2xl border border-gray-900 bg-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 30 30"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="1.8"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         class="h-8 w-8 text-gray-300">
+                        <!-- wallet body -->
+                        <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5h11A2.5 2.5 0 0 1 19 7.5v9A2.5 2.5 0 0 1 16.5 19h-11A2.5 2.5 0 0 1 3 16.5z"/>
+                        <!-- wallet flap -->
+                        <path d="M19 10h-4a2 2 0 0 0 0 4h4"/>
+                        <!-- coin / cash hint -->
+                        <circle cx="15.5" cy="12" r="0.8"/>
+                    </svg>
+                </div>
+            </div>
+            <p class="text-gray-400 mt-1">
+                <span>•</span>
+                <span> Wallet balance & lifetime summary</span>
+            </p>
+            <p class="text-gray-400 mt-2">
+                • <strong class="text-white text-sm">Wallet Address: </strong>
+                <span id="wallet-address" class="ml-2 p-2 px-4 border border-gray-800 bg-gray-950 opacity-90 rounded-lg text-[11px]"></span>
+            </p>
+        </div>
+    </header>
+    <!-- METRICS -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Wallet Balance -->
+        <div class="bg-gray-900 border border-indigo-500/30 rounded-2xl p-6">
+            <p class="text-xs uppercase tracking-wider text-indigo-400">
+                Balance
+            </p>
+
+            <div class="flex items-end gap-2 mt-3">
+            <span class="text-3xl font-semibold text-white" id="wallet-balance">
+                0.00
+            </span>
+                <span class="text-lg text-gray-400" id="wallet-currency">
+                USD
+            </span>
+            </div>
+
+            <p class="text-xs text-gray-500 mt-2">
+                Available wallet balance
+            </p>
+        </div>
+
+        <!-- Wallet Currency -->
+        <div class="bg-gray-900 border border-indigo-500/30 rounded-2xl p-6">
+            <p class="text-xs uppercase tracking-wider text-indigo-400">
+                Currency
+            </p>
+
+            <p class="text-3xl font-semibold text-white mt-3" id="wallet-currency-full">
+            </p>
+
+            <p class="text-xs text-gray-500 mt-2">
+                Default transaction currency
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= WALLET TRANSACTIONS OVERVIEW ================= -->
+<section id="wallet-transaction-overview" class="bg-gray-900 border border-gray-800 rounded-3xl p-10 space-y-12 mt-10 hidden">
+
+    <!-- TITLE -->
+    <header>
+        <h1 class="text-4xl font-bold text-white">
+            Wallet Transactions Overview
+        </h1>
+        <p class="text-sm text-gray-400 mt-1">
+            System-wide transaction flow & fee impact
+        </p>
+    </header>
+
+    <!-- SYSTEM HERO -->
+    <!-- ================= SYSTEM WALLET OVERVIEW ================= -->
+    <section
+            class="relative bg-gradient-to-br from-indigo-900/30 via-gray-900 to-gray-950
+         border border-indigo-700/40 rounded-3xl p-10 overflow-hidden">
+
+        <!-- subtle glow -->
+        <div class="absolute inset-0 bg-indigo-500/5 blur-3xl pointer-events-none"></div>
+
+        <!-- HEADER -->
+        <header class="relative z-10 mb-8">
+            <h3 class="font-bold text-white">
+                System Wallet Transaction Overview
+            </h3>
+            <p class="text-sm text-gray-400 mt-1">
+                Aggregated inflow, outflow & fee metrics
+            </p>
+        </header>
+
+        <!-- METRICS -->
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- INFLOW -->
+            <div
+                    class="bg-gray-900/70 backdrop-blur
+                    border border-emerald-500/30 rounded-2xl p-6">
+                <p class="text-xs uppercase tracking-wide text-emerald-400 font-semibold">
+                    INFLOW TOTAL
+                </p>
+                <p
+                        class="mt-3 text-4xl font-semibold text-white"
+                        id="wallet-transaction-total-amount-inflow"
+                >
+                    $0
+                </p>
+                <p class="text-xs text-gray-500 mt-2">
+                    All incoming wallet transactions
+                </p>
+            </div>
+
+            <!-- OUTFLOW -->
+            <div
+                    class="bg-gray-900/70 backdrop-blur
+             border border-rose-500/30 rounded-2xl p-6">
+                <p class="text-xs uppercase tracking-wide text-rose-400 font-semibold">
+                    OUTFLOW TOTAL
+                </p>
+                <p
+                        class="mt-3 text-4xl font-semibold text-white"
+                        id="wallet-transaction-total-amount-outflow"
+                >
+                    $0
+                </p>
+                <p class="text-xs text-gray-500 mt-2">
+                    Withdrawals & spending
+                </p>
+            </div>
+
+            <!-- FEE -->
+            <div
+                    class="bg-gray-900/70 backdrop-blur
+             border border-amber-500/30 rounded-2xl p-6">
+                <p class="text-xs uppercase tracking-wide text-amber-400">
+                    Fee Service Total
+                </p>
+                <p
+                        class="mt-3 text-4xl font-semibold text-amber-400"
+                        id="wallet-transaction-fee-total"
+                >
+                    $0
+                </p>
+                <p class="text-xs text-gray-500 mt-2">
+                    Platform fee accumulation
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="bg-gradient-to-br from-gray-950 via-gray-900 to-indigo-900/30
+                border border-gray-800 rounded-3xl p-10 space-y-12">
+        <!-- TRANSACTION BREAKDOWN -->
+        <div class="space-y-10">
+
+            <h2 class="text-2xl font-semibold text-white">
+                Transaction Breakdown
+            </h2>
+
+            <!-- ================= INFLOW ================= -->
+            <section class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                    <h3 class="text-lg font-semibold text-emerald-400 uppercase tracking-wide">
+                        Inflow
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <!-- SALE (existing) -->
+                    <div class="bg-gray-900 border border-emerald-500/30 rounded-2xl p-6">
+                        <p class="text-xs uppercase text-emerald-400">Sale Total</p>
+                        <p class="text-2xl font-semibold text-white mt-2"
+                           id="wallet-transaction-sale-total">$0</p>
+                        <p class="mt-4 text-sm text-gray-400">
+                            Fee Total:
+                            <span class="text-white"
+                                  id="wallet-transaction-sale-fee-total">$0</span>
+                        </p>
+                        <button
+                                data-type="sale"
+                                class="btn-trans-type text-sm text-emerald-400 mt-4 inline-block hover:underline">
+                            View sale flow →
+                        </button>
+                    </div>
+
+                    <!-- DEPOSIT (added) -->
+                    <div class="bg-gray-900 border border-emerald-500/30 rounded-2xl p-6">
+                        <p class="text-xs uppercase text-emerald-400">Deposit Total</p>
+                        <p class="text-2xl font-semibold text-white mt-2"
+                           id="wallet-transaction-deposit-total">$0</p>
+                        <p class="mt-4 text-sm text-gray-400">
+                            Fee Total:
+                            <span class="text-white"
+                                  id="wallet-transaction-deposit-fee-total">$0</span>
+                        </p>
+                        <button
+                                data-type="deposit"
+                                class="btn-trans-type text-sm text-emerald-400 mt-4 inline-block hover:underline">
+                            View deposit flow →
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ================= OUTFLOW ================= -->
+            <section class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="h-2 w-2 rounded-full bg-rose-400"></span>
+                    <h3 class="text-lg font-semibold text-rose-400 uppercase tracking-wide">
+                        Outflow
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                    <!-- WITHDRAW (existing) -->
+                    <div class="bg-gray-900 border border-rose-500/30 rounded-2xl p-6">
+                        <p class="text-xs uppercase text-rose-400">Withdraw Total</p>
+                        <p class="text-2xl font-semibold text-white mt-2"
+                           id="wallet-transaction-withdraw-total">$0</p>
+                        <p class="mt-4 text-sm text-gray-400">
+                            Fee Total:
+                            <span id="wallet-transaction-withdraw-fee-total"
+                                  class="text-white">$0</span>
+                        </p>
+                        <button
+                                data-type="withdraw"
+                                class="btn-trans-type text-sm text-rose-400 mt-4 inline-block hover:underline">
+                            View withdraw flow →
+                        </button>
+                    </div>
+
+                    <!-- PURCHASE (existing) -->
+                    <div class="bg-gray-900 border border-sky-500/30 rounded-2xl p-6">
+                        <p class="text-xs uppercase text-sky-400">Purchase Total</p>
+                        <p class="text-2xl font-semibold text-white mt-2"
+                           id="wallet-transaction-purchase-total">$0</p>
+                        <p class="mt-4 text-sm text-gray-400">
+                            Fee Total:
+                            <span id="wallet-transaction-purchase-fee-total"
+                                  class="text-white">$0</span>
+                        </p>
+                        <button
+                                data-type="purchase"
+                                class="btn-trans-type text-sm text-sky-400 mt-4 inline-block hover:underline">
+                            View purchase flow →
+                        </button>
+                    </div>
+
+                    <!-- SUBSCRIPTION (existing) -->
+                    <div class="bg-gray-900 border border-amber-500/30 rounded-2xl p-6">
+                        <p class="text-xs uppercase text-amber-400">Subscription Total</p>
+                        <p class="text-2xl font-semibold text-white mt-2"
+                           id="wallet-transaction-subscription-total">$0</p>
+                        <p class="mt-4 text-sm text-gray-400">
+                            Fee Total:
+                            <span id="wallet-transaction-subscription-fee-total"
+                                  class="text-white">$0</span>
+                        </p>
+                        <button
+                                data-type="subscribe"
+                                class="btn-trans-type text-sm text-amber-400 mt-4 inline-block hover:underline">
+                            View subscription flow →
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,81 @@
+<section id="dashboard-subscription" class="space-y-6">
+
+    <!-- PAGE HEADER -->
+    <div>
+        <h2 class="text-xl font-semibold text-white">Subscription Management</h2>
+        <p class="text-sm text-slate-400 mt-1">
+            Manage subscription plans, pricing and duration
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
+
+        <!-- CREATE PANEL -->
+        <form id="subscription-add-form" class="xl:col-span-3">
+            <div
+                    class="sticky top-24
+                       bg-[#020617]
+                       border border-slate-800
+                       rounded-2xl
+                       p-5
+                       h-[calc(100vh-180px)]
+                       flex flex-col">
+
+                <h3 class="text-sm font-semibold text-white mb-4">
+                    Create subscription
+                </h3>
+
+                <div class="space-y-4 flex-1 overflow-y-auto">
+                    <div>
+                        <label class="text-xs text-slate-400">Price</label>
+                        <input type="number" name="price"
+                               class="mt-1 w-full px-3 py-2 bg-transparent border border-slate-700 rounded-lg text-sm text-white"/>
+                    </div>
+
+                    <div>
+                        <label class="text-xs text-slate-400">Duration</label>
+                        <select name="durationDays"
+                                class="mt-1 w-full h-10 px-3 bg-transparent border border-slate-700 rounded-lg text-sm text-white">
+                            <option value="30">30 days</option>
+                            <option value="90">3 months</option>
+                            <option value="180">6 month</option>
+                            <option value="365">1 year</option>
+                            <option value="999999">LifeTime</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="text-xs text-slate-400">Description</label>
+                        <textarea rows="3" name="description"
+                                  class="mt-1 w-full px-3 py-2 bg-transparent border border-slate-700 rounded-lg text-sm text-white resize-none"></textarea>
+                    </div>
+
+                    <!-- ERROR MESSAGE -->
+                    <p id="subs-create-error"
+                       class="text-xs italic text-center text-gray-400"></p>
+                </div>
+
+                <button type="submit"
+                        class="mt-4 w-full py-2 rounded-lg bg-emerald-600 text-sm font-semibold text-white hover:bg-emerald-500">
+                    Create
+                </button>
+            </div>
+        </form>
+
+        <!-- SUBSCRIPTION LIST FRAME -->
+        <div class="xl:col-span-9">
+            <div
+                    class="
+                       h-[calc(100vh-180px)]
+                       overflow-y-auto">
+
+                <div id="subscription-card"
+                     class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <!-- cards append here -->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>

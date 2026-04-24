@@ -1,0 +1,109 @@
+<section id="create-user-page"
+         class="max-w-full mx-auto bg-gray-900 text-white p-10 rounded-2xl shadow-2xl">
+
+    <div class="mb-8 border-b border-gray-700 pb-4 flex justify-between items-center">
+        <div>
+            <h2 class="text-3xl font-bold">Create New User</h2>
+            <p class="text-gray-400 mt-1 text-sm">Fill in the information below to add a new user.</p>
+        </div>
+        <div>
+            <a id="btn^back-user" href="/admin/users" data-link
+               class="cursor-pointer px-4 py-2 bg-orange-600 hover:bg-orange-700 rounded-lg text-white">
+                ◀ Back
+            </a>
+        </div>
+    </div>
+
+    <form id="create-user-form" class="grid grid-cols-2 gap-8">
+        <!-- User Name -->
+        <div class="col-span-2">
+            <label class="block mb-2 font-medium text-gray-300">Username</label>
+            <input name="username" type="text" id="username" required
+                   class="w-full h-11 px-4 rounded-xl bg-gray-800 border border-gray-700
+                          focus:border-blue-500 focus:ring-2 focus:ring-blue-600 outline-none transition"/>
+        </div>
+
+        <!-- First Name -->
+        <div class="col-span-1">
+            <label class="block mb-2 font-medium text-gray-300">First Name</label>
+            <input name="firstName" type="text" id="firstName" required
+                   class="w-full h-11 px-4 rounded-xl bg-gray-800 border border-gray-700
+                          focus:border-blue-500 focus:ring-2 focus:ring-blue-600 outline-none transition"/>
+        </div>
+
+        <!-- Last Name -->
+        <div class="col-span-1">
+            <label class="block mb-2 font-medium text-gray-300">Last Name</label>
+            <input name="lastName" type="text" id="lastName" required
+                   class="w-full h-11 px-4 rounded-xl bg-gray-800 border border-gray-700
+                          focus:border-blue-500 focus:ring-2 focus:ring-blue-600 outline-none transition"/>
+        </div>
+
+        <!-- Email -->
+        <div class="col-span-2">
+            <label class="block mb-2 font-medium text-gray-300">Email</label>
+            <input name="email" type="email" id="email" required
+                   class="w-full h-11 px-4 rounded-xl bg-gray-800 border border-gray-700
+                          focus:border-blue-500 focus:ring-2 focus:ring-blue-600 outline-none transition"/>
+        </div>
+
+        <!-- Phone -->
+        <div class="col-span-2">
+            <label class="block mb-2 font-medium text-gray-300">Phone</label>
+            <input name="phone" type="text" id="phone" required
+                   class="w-full h-11 px-4 rounded-xl bg-gray-800 border border-gray-700
+                          focus:border-blue-500 focus:ring-2 focus:ring-blue-600 outline-none transition"/>
+        </div>
+
+        <!-- Role -->
+        <div class="col-span-1">
+            <label class="block mb-2 font-medium text-gray-300">Role</label>
+            <select name="roleId" id="roleId" required
+                    class="w-full h-11 px-4 rounded-xl bg-gray-800 border border-gray-700
+                           focus:border-blue-500 focus:ring-2 focus:ring-blue-600 outline-none transition">
+                <option value="">-- Select Role --</option>
+                <option value="1">Super Admin</option>
+                <option value="2">Admin</option>
+                <option value="3">User</option>
+            </select>
+        </div>
+
+        <!-- Date of birth -->
+        <div class="col-span-1">
+            <label class="block mb-2 font-medium text-gray-300">Date of Birth</label>
+            <input name="dateOfBirth" type="date" id="dateOfBirth" placeholder="dd/MM/yyyy" required
+                   class="w-full h-11 px-4 rounded-xl bg-gray-800 border border-gray-700
+                          focus:border-blue-500 focus:ring-2 focus:ring-blue-600 outline-none transition"/>
+        </div>
+
+        <!-- Password -->
+        <div class="col-span-1">
+            <label class="block mb-2 font-medium text-gray-300">Password</label>
+            <input name="password" type="password" id="password" required
+                   class="w-full h-11 px-4 rounded-xl bg-gray-800 border border-gray-700
+                          focus:border-blue-500 focus:ring-2 focus:ring-blue-600 outline-none transition"/>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="col-span-1">
+            <label class="block mb-2 font-medium text-gray-300">Confirm Password</label>
+            <input name="passwordConfirm" type="password" id="passwordConfirm" required
+                   class="w-full h-11 px-4 rounded-xl bg-gray-800 border border-gray-700
+                          focus:border-blue-500 focus:ring-2 focus:ring-blue-600 outline-none transition"/>
+        </div>
+
+        <!-- Submit -->
+        <div class="col-span-2 mt-4">
+            <button type="submit" id="btn-user-create"
+                    class="w-full cursor-pointer py-3 rounded-xl bg-blue-600 hover:bg-blue-700
+                           font-semibold tracking-wide text-lg transition shadow-lg">
+                Create User
+            </button>
+        </div>
+    </form>
+    <!-- Error -->
+    <div id="create-user-error"
+         class="mt-4 text-left hidden rounded-lg border border-red-500 bg-red-50 dark:bg-red-950
+            text-red-700 dark:text-red-400 p-3 text-sm font-medium">
+    </div>
+</section>

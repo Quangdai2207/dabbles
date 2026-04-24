@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "354001535629",
+    "project_id": "ecommercesystem-477813",
+    "storage_bucket": "ecommercesystem-477813.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354001535629:android:d946a7feac1c709be3d8c4",
+        "android_client_info": {
+          "package_name": "ti.dabble.dabble"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "354001535629-klonv5404o608sf5i6jk22iqo3dshphg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ti.dabble.dabble",
+            "certificate_hash": "e2159a2a53080cbacc0d9034972ad208a4c384ca"
+          }
+        },
+        {
+          "client_id": "354001535629-5s6j65hll5cjgd8vna0qdbh59k1845l1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMv_pNqux3yfMpSwKnIdxaDwvKIKi5hbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "354001535629-5s6j65hll5cjgd8vna0qdbh59k1845l1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

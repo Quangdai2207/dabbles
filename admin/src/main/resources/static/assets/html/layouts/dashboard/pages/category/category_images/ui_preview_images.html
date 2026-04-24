@@ -1,0 +1,202 @@
+<!-- OVERLAY MODAL -->
+<div id="category-preview-images-frame"
+     class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50">
+
+    <div class="max-w-7xl mx-auto h-full flex flex-col p-6">
+
+        <!-- HEADER -->
+        <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xl font-semibold text-white">
+                Category Images Preview
+            </h2>
+
+            <button
+                    id="category-image-preview-btn-close"
+                    class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded-lg text-sm text-gray-200">
+                Close
+            </button>
+        </div>
+
+        <!-- BODY -->
+        <div class="bg-gray-950 border border-gray-800 rounded-2xl shadow-2xl flex-1 flex overflow-hidden">
+
+            <!-- LEFT: IMAGE LIST -->
+            <div id="category-image-list-container" class="w-1/2 border-r border-gray-800 overflow-y-auto p-4 space-y-4">
+                <div class="flex justify-between gap-4">
+                    <h3 class="text-sm font-semibold text-gray-300 mb-2">All Images</h3>
+                    <div class="flex gap-3">
+                        <button
+                                id="category-image-collapse"
+                                class="px-3 py-1 bg-orange-600 cursor-pointer hover:bg-orange-700 font-semibold rounded-lg text-xs text-gray-200">
+                            Collapse
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                        <!-- TOP FADE -->
+                        <div class="pointer-events-none absolute top-0 left-0 right-0 h-6
+                            bg-gradient-to-b from-gray-950 to-transparent z-20"></div>
+
+                        <!-- SCROLL LIST -->
+                        <div id="category-image-preview-list"
+                             class="grid [grid-template-columns:repeat(auto-fill,minmax(110px,1fr))]
+                                gap-2 p-3 rounded-xl border border-gray-900
+                                overflow-y-auto overflow-x-hidden
+                                max-h-[calc(100vh-220px)]
+                                bg-gray-950">
+                            <!-- Append list image -->
+                        </div>
+                        <!-- BOTTOM FADE -->
+                        <div id="category-image-preview-btn-view-more"
+                             class="pointer-events-none absolute bottom-0 left-0 right-0 h-6
+                            bg-gradient-to-t from-gray-950 to-transparent z-20"></div>
+                    </div>
+                    <div id="no-more-images-alert"
+                         class="px-4 rounded-xl hidden
+                       bg-gray-950 text-gray-300 text-sm text-center align-bottom">
+                    </div>
+                </div>
+
+            <!-- RIGHT: IMAGE DETAILS -->
+            <div class="w-1/2 p-3
+                        overflow-y-auto
+                        [&::-webkit-scrollbar]:hidden
+                        [-ms-overflow-style:none]
+                        [scrollbar-width:none]">
+                <!-- EMPTY STATE -->
+                <div id="image-detail-empty"
+                     class="text-gray-600 text-2xl mx-auto text-center font-semibold italic mt-70">
+                    Select an image to preview
+                </div>
+                <!-- DETAIL PANEL -->
+                <div id="image-detail-panel"
+                     class="hidden bg-gray-950/90 border border-gray-900
+                            rounded-2xl p-6 space-y-4 shadow-xl backdrop-blur-md">
+
+                    <!-- HEADER -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-gray-500">Image Preview</p>
+                            <h3 id="detail-title"
+                                class="text-lg font-semibold text-white">
+                            </h3>
+                        </div>
+
+                        <span id="detail-status"
+                              class="px-2 py-[3px] rounded-lg text-[11px] border font-semibold">
+                          </span>
+                    </div>
+                    <!-- CREATOR -->
+                    <div class="flex items-center gap-3 bg-gray-800/40 p-3 rounded-xl border border-gray-700">
+                        <img id="detail-creator-avatar"
+                             class="w-9 h-9 rounded-full object-cover border border-gray-700"
+                             src="https://placehold.co/200x200"
+                             onerror="this.src='https://demofree.sirv.com/nope-not-here.jpg'"
+                        />
+                        <div>
+                            <p class="text-xs text-gray-400">Creator</p>
+                            <p id="detail-creator-name" class="text-sm font-medium text-gray-200">
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <!-- IMAGE PREVIEW -->
+                    <div class="w-full bg-black border border-gray-800 rounded-xl
+                                flex items-center justify-center overflow-hidden">
+                        <img id="detail-image"
+                             src=""
+                             onerror="this.src='https://demofree.sirv.com/nope-not-here.jpg'"
+                             class="max-h-[420px] w-auto object-contain">
+                    </div>
+
+
+                    <!-- META GRID -->
+                    <div class="grid grid-cols-2 gap-5 text-sm text-gray-300 border border-gray-800 p-4 rounded-lg">
+                        <div>
+                            <p class="text-gray-400 text-xs">File Size</p>
+                            <p id="detail-size"></p>
+                        </div>
+
+                        <div>
+                            <p class="text-gray-400 text-xs">Format</p>
+                            <p id="detail-format"></p>
+                        </div>
+
+                        <div>
+                            <p class="text-gray-400 text-xs">Price</p>
+                            <p id="detail-price"></p>
+                        </div>
+
+                        <div>
+                            <p class="text-gray-400 text-xs">Created</p>
+                            <p id="detail-created"></p>
+                        </div>
+
+                        <div>
+                            <p class="text-gray-400 text-xs">Likes</p>
+                            <p id="detail-like"></p>
+                        </div>
+
+                        <div>
+                            <p class="text-gray-400 text-xs">Comments</p>
+                            <p id="detail-comment"></p>
+                        </div>
+
+                        <div>
+                            <p class="text-gray-400 text-xs">Width Origin</p>
+                            <p id="detail-width-origin"></p>
+                        </div>
+                    </div>
+
+                    <!-- DESCRIPTION -->
+                    <div class="border border-gray-800 p-4 rounded-lg">
+                        <p class="text-gray-400 text-xs mb-1">Description</p>
+                        <p id="detail-description"
+                           class="text-sm text-gray-200 leading-relaxed"></p>
+                    </div>
+
+                    <div class="border border-gray-800 p-4 rounded-lg">
+                        <p class="text-gray-400 text-xs mb-1">Categories</p>
+                        <p id="detail-categories"
+                           class="text-sm text-gray-200 leading-relaxed"></p>
+                    </div>
+
+                    <!-- Hidden, using not yet-->
+                    <div class="flex flex-wrap gap-3 pt-2 hidden">
+
+                        <!-- Neutral / Toggle -->
+                        <button id="btn-toggle-public"
+                                class="px-4 py-2 rounded-xl text-sm font-medium
+                                 bg-slate-800 hover:bg-slate-700
+                                 border border-slate-700
+                                 text-gray-200 shadow shadow-black/40
+                                 transition">
+                            Toggle Public
+                        </button>
+
+                        <!-- Primary (Muted) -->
+                        <button id="btn-edit"
+                                class="px-4 py-2 rounded-xl text-sm font-medium
+                                 bg-slate-700 hover:bg-slate-600
+                                 border border-slate-600
+                                 text-gray-100 shadow shadow-black/30
+                                 transition">
+                            Edit
+                        </button>
+
+                        <!-- Danger (Muted) -->
+                        <button id="btn-delete"
+                                class="px-4 py-2 rounded-xl text-sm font-medium
+                                 bg-red-700/80 hover:bg-red-700
+                                 border border-red-800/70
+                                 text-gray-100 shadow shadow-black/40
+                                 transition">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

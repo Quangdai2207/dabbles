@@ -1,0 +1,77 @@
+<!-- HEADER: paste thay header hiện tại -->
+<header id="erp-header"
+        class="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800
+               px-6 py-4 flex items-center justify-between">
+    <!-- LEFT -->
+    <div class="flex items-center gap-8">
+        <a data-link href="/account/dashboard" class="text-xl font-bold tracking-wide text-white">AdminPanel</a>
+
+        <!-- MAIN NAV (desktop) -->
+        <nav id="erp-nav" class="hidden md:flex items-center gap-4 text-sm font-medium text-gray-300">
+
+            <!-- Overview -->
+            <a data-link href="/account" class="hover:text-white transition">Overview</a>
+
+            <!-- Content (maps -> images / boards / categories / comments) -->
+            <div class="group relative">
+                <button class="hover:text-white transition">Content</button>
+                <div class="absolute left-0 mt-2 bg-gray-900 border border-gray-800 rounded-lg shadow-xl p-2 w-44
+                    opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <a data-link href="/account/images" class="block px-3 py-2 hover:bg-gray-800 rounded">Images</a>         <!-- images -->
+                    <a data-link href="/account/boards"  class="block px-3 py-2 hover:bg-gray-800 rounded">Boards</a>          <!-- boards, boards_images -->
+                    <a data-link href="/account/categories" class="block px-3 py-2 hover:bg-gray-800 rounded">Categories</a> <!-- categories, images_categories -->
+                    <a data-link href="/account/comments" class="block px-3 py-2 hover:bg-gray-800 rounded">Comments</a>      <!-- comments -->
+                </div>
+            </div>
+
+            <!-- Users / subscriptions (maps -> users, roles, user_subscriptions, payments) -->
+            <div class="group relative">
+                <button class="hover:text-white transition">Users</button>
+                <div class="absolute left-0 mt-2 bg-gray-900 border border-gray-800 rounded-lg shadow-xl p-2 w-48
+                    opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <a data-link href="/account/users" class="block px-3 py-2 hover:bg-gray-800 rounded">All Users</a>            <!-- users -->
+                    <a data-link href="/account/subscriptions" class="block px-3 py-2 hover:bg-gray-800 rounded">Subscriptions</a> <!-- user_subscriptions, subscription_plans -->
+                    <a data-link href="/account/payments" class="block px-3 py-2 hover:bg-gray-800 rounded">Payments</a>          <!-- payments -->
+                </div>
+            </div>
+
+            <!-- Moderation / Reports (maps -> reports, moderation queue) -->
+            <a data-link href="/account/moderation" class="hover:text-white transition">Moderation</a>  <!-- moderation queue / reports -->
+            <a data-link href="/account/reports" class="hover:text-white transition">Reports</a>
+
+            <!-- Communications -->
+            <a data-link href="/account/conversations" class="hover:text-white transition">Conversations</a> <!-- conversations -->
+
+            <!-- SUPER-ADMIN ONLY: System area (roles, health, logs) -->
+            <div id="erp-super" class="group relative text-red-400 hidden">
+                <button class="text-red-400 hover:text-red-300 font-medium">System</button>
+                <div class="absolute right-0 mt-2 bg-gray-900 border border-gray-800 rounded-lg shadow-xl p-2 w-48
+                    opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <a data-link href="/account/system/health" class="block px-3 py-2 hover:bg-gray-800 rounded">System Health</a>
+                    <a data-link href="/account/system/logs"  class="block px-3 py-2 hover:bg-gray-800 rounded">Logs</a>
+                    <a data-link href="/account/roles"        class="block px-3 py-2 hover:bg-gray-800 rounded">Roles</a>
+                    <a data-link href="/account/settings"     class="block px-3 py-2 hover:bg-gray-800 rounded">Settings</a>
+                </div>
+            </div>
+
+        </nav>
+    </div>
+
+    <!-- RIGHT: user -->
+    <div class="relative group cursor-pointer">
+        <div class="flex items-center gap-3">
+            <img id="erp-avatar" src="/assets/images/account.png" alt="avatar" class="w-9 h-9 border-white rounded-full border border-gray-700">
+            <div class="flex flex-col">
+                <span id="account-username" class="text-sm font-medium text-gray-200">Admin</span>
+                <span id="erp-role-badge" class="text-xs text-red-400">Full Access</span>
+            </div>
+        </div>
+
+        <div class="absolute right-0 mt-3 w-48 bg-gray-900 border border-gray-800 rounded-xl shadow-xl
+                opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <a data-link href="/account/profile"  class="block px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-t-lg">Profile</a>
+            <a data-link href="/account/activity" class="block px-4 py-2 text-gray-300 hover:bg-gray-800">Activity</a>
+            <a id="account-logout" class="block px-4 py-2 text-red-400 hover:bg-gray-800 rounded-b-lg">Logout</a>
+        </div>
+    </div>
+</header>

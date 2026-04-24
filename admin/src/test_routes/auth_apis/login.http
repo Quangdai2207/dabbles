@@ -1,0 +1,15 @@
+### GET request to example server
+### Login
+POST http://localhost:3366/api/auth/login
+Accept: application/json
+Content-Type: application/json
+X-Captcha-Token: your-captcha-token-here
+X-Remember-Token: true
+
+{
+  "username": "admin",
+  "password": "123456"
+}
+
+
+###

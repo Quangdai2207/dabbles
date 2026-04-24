@@ -1,0 +1,48 @@
+/* Căn giữa toàn bộ page */
+#sign-body {
+    width: 100%;
+    min-height: 100vh;         /* full chiều cao trang */
+    display: flex;
+    flex-direction: column;    /* xếp text trên - hình dưới */
+    justify-content: center;   /* căn giữa dọc */
+    align-items: center;       /* căn giữa ngang */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Container text */
+#copy-container {
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+#copy-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+#copy-container p {
+    font-size: 1rem;
+}
+
+/* Ảnh */
+#circle-container {
+    max-width: 300px;
+    width: 100%;
+}
+
+#circle-container svg {
+    width: 100%;
+    height: auto;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    #copy-container h2 {
+        font-size: 1.4rem;
+    }
+
+    #copy-container p {
+        font-size: 0.95rem;
+    }
+}

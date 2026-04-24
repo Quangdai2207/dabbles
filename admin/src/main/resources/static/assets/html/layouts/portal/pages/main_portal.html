@@ -1,0 +1,126 @@
+<div id="portal-content" class="space-y-10">
+
+    <!-- PAGE HEADER -->
+    <section class="mb-8">
+        <h1 class="text-2xl font-semibold text-white">System Overview</h1>
+        <p class="text-gray-400 text-sm mt-1">
+            Tổng quan hoạt động hệ thống — Chế độ <b>Reviewer</b> (Read & Review Only)
+        </p>
+    </section>
+
+    <!-- TOP METRICS -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5">
+            <p class="text-gray-400 text-xs mb-1">Pending Images</p>
+            <h3 class="text-3xl font-bold text-blue-400">57</h3>
+            <p class="text-gray-500 text-xs mt-2">Chờ duyệt</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5">
+            <p class="text-gray-400 text-xs mb-1">Pending Accounts</p>
+            <h3 class="text-3xl font-bold text-yellow-400">14</h3>
+            <p class="text-gray-500 text-xs mt-2">Cần xác minh</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5">
+            <p class="text-gray-400 text-xs mb-1">Unresolved Reports</p>
+            <h3 class="text-3xl font-bold text-red-400">9</h3>
+            <p class="text-gray-500 text-xs mt-2">Cần xử lý</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5">
+            <p class="text-gray-400 text-xs mb-1">System Uptime</p>
+            <h3 class="text-3xl font-bold text-green-400">99.98%</h3>
+            <p class="text-gray-500 text-xs mt-2">Ổn định</p>
+        </div>
+
+    </section>
+
+    <!-- SYSTEM HEALTH -->
+    <section class="mt-10">
+        <h2 class="text-xl font-semibold mb-4">Moderation Workload</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <div class="bg-gray-900 border border-gray-800 rounded-xl p-5">
+                <p class="text-gray-400 text-sm mb-2">Image Queue Load</p>
+                <div class="w-full bg-gray-800 rounded-full h-2 mb-2">
+                    <div class="h-2 rounded-full bg-blue-500" style="width: 62%;"></div>
+                </div>
+                <p class="text-gray-400 text-xs">62% hàng chờ</p>
+            </div>
+
+            <div class="bg-gray-900 border border-gray-800 rounded-xl p-5">
+                <p class="text-gray-400 text-sm mb-2">Account Verification</p>
+                <div class="w-full bg-gray-800 rounded-full h-2 mb-2">
+                    <div class="h-2 rounded-full bg-yellow-500" style="width: 44%;"></div>
+                </div>
+                <p class="text-gray-400 text-xs">Hoạt động bình thường</p>
+            </div>
+
+            <div class="bg-gray-900 border border-gray-800 rounded-xl p-5">
+                <p class="text-gray-400 text-sm mb-2">Reports Handling</p>
+                <div class="w-full bg-gray-800 rounded-full h-2 mb-2">
+                    <div class="h-2 rounded-full bg-red-500" style="width: 78%;"></div>
+                </div>
+                <p class="text-gray-400 text-xs">Cao — ưu tiên xử lý</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="mt-10">
+        <h2 class="text-xl font-semibold mb-4">Recent Activity</h2>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-6">
+
+            <div class="flex items-start justify-between">
+                <div>
+                    <p class="text-gray-300">
+                        <span class="font-semibold text-white">Account Request</span>
+                        • User <span class="font-medium">lam.nguyen</span>
+                    </p>
+                    <p class="text-gray-500 text-xs">Yêu cầu xác minh danh tính</p>
+                </div>
+                <span class="text-gray-500 text-xs">6 phút trước</span>
+            </div>
+
+            <div class="flex items-start justify-between">
+                <div>
+                    <p class="text-gray-300">
+                        <span class="font-semibold text-white">Report Created</span>
+                        • Photo #34922
+                    </p>
+                    <p class="text-gray-500 text-xs">Nội dung không phù hợp</p>
+                </div>
+                <span class="text-gray-500 text-xs">27 phút trước</span>
+            </div>
+
+            <div class="flex items-start justify-between">
+                <div>
+                    <p class="text-gray-300">
+                        <span class="font-semibold text-white">Image Submitted</span>
+                        • User <span class="font-medium">kiwi.art</span>
+                    </p>
+                    <p class="text-gray-500 text-xs">Chờ Reviewer duyệt</p>
+                </div>
+                <span class="text-gray-500 text-xs">1 giờ trước</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PERMISSIONS FOOTER -->
+    <section class="mt-10 bg-gray-900 border border-gray-800 rounded-xl p-5">
+        <h3 class="text-lg font-semibold text-white">Reviewer Permissions</h3>
+        <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+            Chế độ <b>Read & Review Only</b>:
+            <br>— Không thể tạo, sửa hoặc xoá dữ liệu.
+            <br>— Được duyệt ảnh, xét duyệt tài khoản, xử lý báo cáo.
+            <br>— Nếu cần thêm quyền, liên hệ Super Admin.
+        </p>
+    </section>
+
+</div>

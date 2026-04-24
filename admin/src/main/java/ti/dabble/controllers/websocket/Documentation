@@ -1,0 +1,46 @@
+Tieng viet:
+PACKAGE WebsocketController
+
+    WebsocketController la noi cu ly du lieu realtime 2 chieu tu FE -> BE va nguoc lai.
+
+    Du lieu realTime nay co the ap dung truc tiep cho nguoi dung truy cap truc tiep tren ung dung admin BFF
+    hoac co the su dung cho nguoi dung truy cap tu nhieu ung dung khac thong qua 2 luong chinh la Upstream va
+    Downstream cua Websocket. Trong do:
+
+        1.  @MessageMapping(app-router)
+            Luong Upstream gui tu FE ve cho BFF server
+
+        2.  @SendTo(topic-router)
+            Luong Downstream Broadcast phan hoi tu BFF cho FE
+
+        3.  @SendToUser(user-router)
+            Luong Downstream Private phan hoi tu BFF cho FE
+
+Trong ngu canh la ung dung admin BFF, thi WebsocketController voi chuc nang quan ly phien ket noi socket la khong can thi
+vi da duoc dinh nghia trong 2 class Component duoc giai thich tai Documentation theo duong dan:
+    admin/src/main/java/ti/dabble/configurations/AuthSocket/documentation
+
+-----
+English Sub
+PACKAGE WebsocketController
+
+The WebsocketController is responsible for handling two-way real-time data between the Frontend (FE)
+and the Backend (BE).
+
+This real-time data can be applied directly to users who access the admin BFF application, or it can be used by users
+accessing from multiple other applications through the two main WebSocket channels: Upstream and Downstream.
+Specifically:
+
+    1   @MessageMapping(app-router)
+        The Upstream channel used to send data from the Frontend to the BFF server.
+
+    2.  @SendTo(topic-router)
+        The Downstream broadcast channel used to send responses from the BFF server to the Frontend.
+
+    3.  @SendToUser(user-router)
+        The Downstream private channel used to send responses from the BFF server to a specific Frontend user.
+
+
+In the context of the admin BFF application, the WebsocketController does not need to manage WebSocket connection
+sessions, as this responsibility has already been defined in two Component classes explained in the documentation
+located at: "admin/src/main/java/ti/dabble/configurations/AuthSocket/documentation"

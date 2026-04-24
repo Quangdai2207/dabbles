@@ -1,0 +1,20 @@
+targets:
+  $default:
+    builders:
+      json_serializable:
+        options:
+          # Generate fromJson/toJson in the same file
+          create_factory: true
+          create_to_json: true
+          # Use explicit_to_json for nested objects
+          explicit_to_json: true
+          # Include if null in JSON output
+          include_if_null: false
+          # Field rename policy (none, kebab, snake, pascal, screaming_snake)
+          field_rename: none
+          # Generate nullable fields
+          checked: true
+          # Disallow unrecognized keys
+          disallow_unrecognized_keys: false
+          # Any map type
+          any_map: false

@@ -1,0 +1,267 @@
+<div id="user-image-detail-popup"
+     class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center
+         overflow-hidden
+         [scrollbar-width:none]
+         [-ms-overflow-style:none]
+         [&::-webkit-scrollbar]:hidden">
+    <div
+            class="
+                  w-[92vw]
+                  max-w-[1800px]
+                  h-[94vh]
+                  bg-gray-950
+                  border border-gray-800
+                  rounded-2xl
+                  shadow-2xl
+                  flex flex-col
+                  overflow-auto
+                  [scrollbar-width:none]
+                  [-ms-overflow-style:none]
+                  [&::-webkit-scrollbar]:hidden
+                ">
+        <!-- ================= HEADER ================= -->
+        <header id="user-detail-header-image-details"
+                class="flex items-center justify-between px-8 py-5 border-b border-gray-800">
+            <div class="space-y-1">
+                <div class="flex gap-4 justify-start align-middle">
+                    <h3 id="user-image-details-title" class="text-xl font-semibold text-white"></h3>
+                    <span id="user-image-details-isPublic"></span>
+                </div>
+                <p id="user-image-details-id" class="text-xs text-gray-500 break-all"></p>
+            </div>
+
+            <div class="flex gap-3 items-center">
+                <button class="px-4 py-2 text-sm rounded-lg bg-gray-800 hover:bg-gray-900
+                 text-orange-600 border-gray-400 hover:text-orange-500
+                 font-semibold
+                 cursor-pointer">
+                    ▾ Download
+                </button>
+
+                <button id="user-image-details-delete"
+                        class="px-4 py-2 text-sm rounded-lg bg-red-800 hover:bg-red-700 text-white cursor-pointer">
+                    Blacklist
+                </button>
+
+                <button
+                        id="btn-image-details-popup"
+                        class="ml-2 text-gray-400 hover:text-white text-2xl"
+                >
+                    ✕
+                </button>
+            </div>
+        </header>
+
+        <!-- ================= BODY ================= -->
+        <div class="flex flex-1 overflow-hidden">
+
+            <!-- ===== LEFT: IMAGE PREVIEW (WIDER) ===== -->
+            <div class="flex-[1.8] bg-black flex flex-col items-center justify-center p-2">
+                <img
+                        src="https://demofree.sirv.com/nope-not-here.jpg"
+                        onerror='src="https://demofree.sirv.com/nope-not-here.jpg"'
+                        id="user-image-detail-preview"
+                        class="
+                    max-h-[72vh]
+                    max-w-full
+                    object-contain
+                    rounded-xl
+                    shadow-2xl
+                  "/>
+            </div>
+
+            <!-- ===== RIGHT: INFO PANEL (WIDER) ===== -->
+            <div  class="
+                  w-[520px]
+                  border-l border-gray-800
+                  px-6 py-5
+                  space-y-6
+                  overflow-y-auto
+                  [scrollbar-width:none]
+                  [-ms-overflow-style:none]
+                  [&::-webkit-scrollbar]:hidden
+                ">
+                <!-- TABS -->
+                <div class="flex gap-2 text-sm sticky top-0 bg-gray-950 pb-3 z-10" id="image-detail-tabs">
+                    <button
+                            class="tab-btn px-4 py-2 rounded-lg bg-gray-800 text-white cursor-pointer"
+                            data-tab="info">
+                        Info
+                    </button>
+
+                    <button
+                            class="cursor-pointer tab-btn px-4 py-2 rounded-lg bg-gray-900 text-gray-400 hover:bg-gray-800"
+                            data-tab="sizes">
+                        Sizes
+                    </button>
+
+                    <button
+                            class="cursor-pointer tab-btn px-4 py-2 rounded-lg bg-gray-900 text-gray-400 hover:bg-gray-800"
+                            data-tab="admin">
+                        Admin
+                    </button>
+                </div>
+
+                <!-- ================= INFO ================= -->
+                <section
+                        class="space-y-5
+                            overflow-auto
+                            max-h-[650px]
+                            [scrollbar-width:none]
+                            [-ms-overflow-style:none]
+                            [&::-webkit-scrollbar]:hidden"
+                        data-tab-content="info">
+
+                    <!-- HEADER / UPLOADER -->
+                    <div class="p-5 rounded-2xl bg-gray-900 border border-gray-800">
+                        <div class="flex items-center gap-4">
+                            <img
+                                    id="user-details-right-frame-image-detail-avatar"
+                                    src="https://demofree.sirv.com/nope-not-here.jpg"
+                                    onerror="src='https://demofree.sirv.com/nope-not-here.jpg'"
+                                    class="w-14 h-14 rounded-full object-cover border border-gray-700"
+                            />
+
+                            <div class="flex-1 min-w-0">
+                                <p id="user-details-right-frame-image-detail-name"
+                                   class="text-sm font-semibold text-white truncate"></p>
+
+                                <p class="text-xs text-gray-400 mt-0.5">Uploader</p>
+                            </div>
+
+                            <!-- STATUS / BADGE -->
+                            <span id="user-details-right-frame-image-detail-creator-status" class="px-3 py-1 rounded-lg text-[11px] bg-emerald-500/10 text-emerald-300 border border-emerald-700/40">
+                              </span>
+                        </div>
+                    </div>
+
+                    <!-- DESCRIPTION -->
+                    <div class="p-5 rounded-2xl bg-gray-900 border border-gray-800">
+                        <p class="text-[11px] uppercase tracking-wide text-gray-400 font-medium mb-2">
+                            Description
+                        </p>
+
+                        <p id="user-details-right-frame-image-detail-desc"
+                           class="text-sm leading-relaxed text-gray-200 break-words"></p>
+                    </div>
+
+                    <!-- CATEGORIES -->
+                    <div class="p-5 rounded-2xl bg-gray-900 border border-gray-800">
+                        <p class="text-[11px] uppercase tracking-wide text-gray-400 font-medium mb-2">
+                            Categories
+                        </p>
+
+                        <div id="user-details-right-frame-image-detail-categories"
+                             class="flex flex-wrap gap-2 text-sm text-gray-200">
+                            <!-- JS render dạng badge -->
+                            <!-- <span class="px-3 py-1 rounded-lg bg-gray-700/40 border border-gray-600">Landscape</span> -->
+                        </div>
+                    </div>
+
+                    <!-- STATS -->
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="p-4 rounded-2xl bg-gray-900 border border-gray-800 text-center">
+                            <p class="text-xs text-gray-400">Likes</p>
+                            <p id="user-details-right-frame-image-detail-like" class="text-lg font-semibold text-white"></p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-gray-900 border border-gray-800 text-center">
+                            <p class="text-xs text-gray-400">Comments</p>
+                            <p id="user-details-right-frame-image-detail-comment" class="text-lg font-semibold text-white"></p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-gray-900 border border-gray-800 text-center">
+                            <p class="text-xs text-gray-400">Price</p>
+                            <p id="user-details-right-frame-image-detail-price" class="text-lg font-semibold text-white"></p>
+                        </div>
+                    </div>
+
+                    <!-- DETAILS -->
+                    <div class="p-5 rounded-2xl bg-gray-900 border border-gray-800">
+                        <p class="text-[11px] uppercase tracking-wide text-gray-400 font-medium mb-3">
+                            Image Details
+                        </p>
+
+                        <div class="divide-y divide-gray-800 text-sm">
+                            <div class="flex justify-between py-2">
+                                <span class="text-gray-400">Original Width</span>
+                                <span id="user-details-right-frame-image-detail-width" class="text-white font-medium"></span>
+                            </div>
+
+                            <div class="flex justify-between py-2">
+                                <span class="text-gray-400">Aspect Ratio</span>
+                                <span class="text-white font-medium">1 : 2</span>
+                            </div>
+
+                            <div class="flex justify-between py-2">
+                                <span class="text-gray-400">File Size</span>
+                                <span id="user-details-right-frame-image-detail-size" class="text-white font-medium"></span>
+                            </div>
+
+                            <div class="py-2">
+                                <span class="text-gray-400 block mb-2">Created</span>
+
+                                <div class="space-y-2">
+                                    <div class="flex justify-between">
+                                        <span class="text-xs text-gray-500">Time</span>
+                                        <span id="user-details-right-frame-image-detail-created-time"
+                                              class="px-2 py-0.5 text-[11px] bg-gray-700/30 rounded-lg text-white"></span>
+                                    </div>
+
+                                    <div class="flex justify-between">
+                                        <span class="text-xs text-gray-500">Date</span>
+                                        <span id="user-details-right-frame-image-detail-created-date"
+                                              class="px-2 py-0.5 text-[11px] bg-gray-700/30 rounded-lg text-white"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= SIZES ================= -->
+                <section id="user-image-details-size" class="space-y-3 pt-6 border-t border-gray-800 hidden"
+                         data-tab-content="sizes">
+                    <p class="text-xs text-gray-400">Available sizes</p>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <button id="user-details-right-frame-image-detail-w1"
+                                class="cursor-pointer px-4 py-2 bg-gray-800 rounded-lg text-white">236px
+                        </button>
+                        <button id="user-details-right-frame-image-detail-w2"
+                                class="cursor-pointer px-4 py-2 bg-gray-800 rounded-lg text-white">474px
+                        </button>
+                        <button id="user-details-right-frame-image-detail-w3"
+                                class="cursor-pointer px-4 py-2 bg-gray-800 rounded-lg text-white">736px
+                        </button>
+                        <button id="user-details-right-frame-image-detail-w4"
+                                class="cursor-pointer px-4 py-2 bg-gray-800 rounded-lg text-white">1080px
+                        </button>
+                        <button id="user-details-right-frame-image-detail-w5"
+                                class="cursor-pointer px-4 py-2 bg-purple-800 rounded-lg text-white col-span-2">
+                            Original
+                        </button>
+                        <button id="user-details-right-frame-image-detail-new-tab"
+                                class="cursor-pointer px-4 py-2 bg-orange-700 rounded-lg text-white col-span-2">
+                            New Tab Window
+                        </button>
+                    </div>
+                </section>
+
+                <!-- ================= ADMIN ================= -->
+                <section class="space-y-4 pt-6 border-t border-gray-800 hidden" data-tab-content="admin">
+                    <div>
+                        <p class="text-xs text-gray-400 mb-2">Admin note</p>
+                        <textarea
+                                class="w-full bg-gray-800 border border-gray-700 rounded-lg p-3 text-sm text-white"
+                                rows="4"
+                                placeholder="Moderation note / reason..."
+                        ></textarea>
+                    </div>
+
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>

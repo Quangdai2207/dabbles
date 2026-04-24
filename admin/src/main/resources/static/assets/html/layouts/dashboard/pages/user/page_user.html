@@ -1,0 +1,100 @@
+<section id="super-users" class="space-y-8">
+
+    <!-- HEADER -->
+    <header class="bg-gray-900 border border-gray-800 rounded-2xl p-6 shadow">
+        <div class="flex justify-between items-center">
+            <div>
+                <h2 class="text-2xl font-bold text-white">User Management</h2>
+                <p class="text-gray-400 text-sm">Full control — Create, Update, Delete, Assign Roles</p>
+            </div>
+
+            <div class="flex gap-3">
+                <a id="btn-create-user" href="/admin/users/create" data-link
+                   class="cursor-pointer px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-lg text-white">
+                    + Create User
+                </a>
+                <a id="btn^back-user" href="/admin/dashboard" data-link
+                   class="cursor-pointer px-4 py-2 bg-orange-600 hover:bg-orange-700 rounded-lg text-white">
+                    ◀ Back
+                </a>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-6">
+            <div class="bg-gray-800 rounded-xl p-4 text-center">
+                <p class="text-xs text-gray-400">Total User</p>
+                <p id="section-user-stat-total" class="text-2xl font-semibold text-white">0</p>
+            </div>
+
+            <div class="bg-gray-800 rounded-xl p-4 text-center">
+                <p class="text-xs text-green-400">Activated Total</p>
+                <p id="section-user-stat-activated-total" class="text-2xl font-semibold text-green-400">0</p>
+            </div>
+
+            <div class="bg-gray-800 rounded-xl p-4 text-center">
+                <p class="text-xs text-blue-400">Public Total</p>
+                <p id="section-user-stat-public-total" class="text-2xl font-semibold text-blue-300">0</p>
+            </div>
+
+            <div class="bg-gray-800 rounded-xl p-4 text-center">
+                <p class="text-xs text-orange-400">Warning Total</p>
+                <p id="section-user-stat-warning-total" class="text-2xl font-semibold text-orange-400">0</p>
+            </div>
+            <div class="bg-gray-800 rounded-xl p-4 text-center">
+                <p class="text-xs text-red-400">Block Total</p>
+                <p id="section-user-stat-block-total" class="text-2xl font-semibold text-red-400">0</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- FILTER BAR -->
+    <div class="grid grid-cols-4 gap-4 bg-gray-950 p-0 rounded-xl border-none border-gray-800">
+        <input id="super-admin-search-user" type="text"
+               placeholder="Search name, email..."
+               class="px-3 py-2 bg-gray-800 rounded-lg text-white w-full">
+
+        <select id="super-admin-filter-role"
+                class="px-3 py-2 bg-gray-800 rounded-lg text-white w-full">
+            <option value="">Filter by Role</option>
+            <option value="ADMIN">Admin</option>
+            <option value="USER">User</option>
+        </select>
+
+        <select id="super-admin-filter-status"
+                class="px-3 py-2 bg-gray-800 rounded-lg text-white w-full">
+            <option value="">Account status</option>
+            <option value="ACTIVE">Active</option>
+            <option value="LOCKED">Locked</option>
+        </select>
+
+        <button id="super-admin-btn-reset-filters"
+                class="px-4 py-2 bg-rose-700 hover:bg-rose-800 border-1 border-rose-800 text-white rounded-lg cursor-pointer">
+            Reload table
+        </button>
+    </div>
+
+    <!-- USER TABLE -->
+    <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden
+            max-h-[520px] overflow-y-auto relative
+             [-ms-overflow-style:'none'] [scrollbar-width:none]
+               [&::-webkit-scrollbar]:hidden">
+        <table class="w-full text-sm text-gray-700 dark:text-gray-300">
+            <thead class="bg-gray-200 dark:bg-gray-800 text-white dark:text-white text-[10px] uppercase">
+            <tr>
+                <th class="p-4 text-left">Avatar</th>
+                <th class="p-4 text-left">Full Name</th>
+                <th class="p-4 text-left">Email</th>
+                <th class="p-4 text-left">Phone</th>
+                <th class="p-4 text-left">Role</th>
+                <th class="p-4 text-left">On/Off</th>
+                <th class="p-4 text-left">Status</th>
+                <th class="p-4 text-center">Actions</th>
+            </tr>
+            </thead>
+            <tbody id="user-table-body">
+            <!-- ROW - append table row here -->
+            </tbody>
+        </table>
+    </div>
+</section>

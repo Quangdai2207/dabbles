@@ -1,0 +1,130 @@
+<section class="w-full bg-gray-950 text-white" id="dashboard-profile">
+
+    <!-- PAGE TITLE -->
+    <div class="mb-12">
+        <h1 class="text-4xl font-extrabold">Profile</h1>
+        <p class="text-gray-400 mt-2 text-lg">Account Info & Password settings</p>
+    </div>
+
+    <!-- GRID 2 COLUMNS -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+        <!-- LEFT COLUMN – AVATAR + BASIC INFO -->
+        <div class="lg:col-span-1 bg-gray-950 p-10 rounded-2xl shadow-xl">
+
+            <div class="flex flex-col items-center">
+                <img id="profile-avatar"
+                     src="https://placehold.co/160"
+                     onerror="this.src='https://placehold.co/160'"
+                     class="w-40 h-40 rounded-full border-4 border-gray-700 object-cover cursor-pointer">
+
+                <div id="avatar-upload-box" class="hidden w-full mt-6">
+                    <label class="block mb-1 text-sm text-gray-300">Change Avatar</label>
+                    <input type="file" id="avatarFile"
+                           class="w-full px-3 py-2 rounded-lg bg-gray-900 border border-gray-700">
+                </div>
+
+                <button id="btn-edit-profile"
+                        class="mt-8 px-8 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-lg font-semibold">
+                    Changes Profile
+                </button>
+
+                <div id="profile-actions" class="hidden flex gap-3 mt-8">
+                    <button id="btn-save-profile"
+                            class="px-6 py-2 rounded-lg bg-green-600 hover:bg-green-700 font-semibold">
+                        Save
+                    </button>
+                    <button id="btn-cancel-profile"
+                            class="px-6 py-2 rounded-lg bg-gray-600 hover:bg-gray-500 font-semibold">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+            <!-- Error -->
+            <div id="profile-error"
+                 class="mt-4 hidden rounded-lg border border-red-500 bg-red-50 dark:bg-red-950 text-red-700 dark:text-red-400 p-3 text-sm font-medium">
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN – FORM DETAILS -->
+        <div class="lg:col-span-2 bg-gray-950 p-10 rounded-2xl shadow-xl">
+
+            <h2 class="text-2xl font-bold mb-8">Your Informations</h2>
+
+            <div class="grid grid-cols-2 gap-8">
+
+                <div>
+                    <label class="block text-gray-400 mb-2">First Name</label>
+                    <input id="firstName" disabled
+                           class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-700">
+                </div>
+
+                <div>
+                    <label class="block text-gray-400 mb-2">Last Name</label>
+                    <input id="lastName" disabled
+                           class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-700">
+                </div>
+
+                <div class="col-span-2">
+                    <label class="block text-gray-400 mb-2">Username</label>
+                    <input id="username" disabled
+                           class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-700" />
+                </div>
+
+                <div class="col-span-2">
+                    <label class="block text-gray-400 mb-2">Email</label>
+                    <input id="email" disabled
+                           class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-700">
+                </div>
+
+                <div class="col-span-2">
+                    <label class="block text-gray-400 mb-2">Phone Number</label>
+                    <input id="phone" disabled
+                           class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-700">
+                </div>
+
+                <div class="col-span-2">
+                    <label class="block text-gray-400 mb-2">Date Of Birth</label>
+                    <input type="text" id="dob-show" disabled
+                           class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-700 mb-2"/>
+                    <input id="dob" disabled type="date"
+                           class="hidden w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-700">
+                </div>
+            </div>
+
+            <!-- CHANGE PASSWORD -->
+            <h2 class="text-2xl font-bold mt-16 mb-6">Change Password</h2>
+
+            <div class="grid grid-cols-2 gap-8">
+                <div class="col-span-2">
+                    <label class="block text-gray-400 mb-2">Current Password</label>
+                    <input type="password" id="currentPassword" required
+                           class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-700">
+                </div>
+
+                <div>
+                    <label class="block text-gray-400 mb-2">New Password</label>
+                    <input type="password" id="newPassword" required
+                           class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-700">
+                </div>
+
+                <div>
+                    <label class="block text-gray-400 mb-2">Confirm Password</label>
+                    <input type="password" id="confirmPassword" required
+                           class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-700">
+                </div>
+            </div>
+
+            <button id="btn-change-password"
+                    class="cursor-pointer mt-8 px-8 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-lg font-semibold">
+                Confirm Update
+            </button>
+
+            <!-- Error -->
+            <div id="change-password-error"
+                 class="hidden mt-6 text-left rounded-lg border border-red-500 bg-red-50 dark:bg-red-950
+            text-red-700 dark:text-red-400 p-3 text-sm font-medium">
+            </div>
+        </div>
+    </div>
+</section>

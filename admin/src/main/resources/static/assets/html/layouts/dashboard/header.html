@@ -1,0 +1,109 @@
+<header class="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur border-b border-gray-800 px-6 py-4 flex items-center justify-between shadow-lg">
+
+    <!-- LEFT -->
+    <div class="flex items-center gap-10">
+
+        <!-- BRAND -->
+        <a href="/admin/dashboard" data-link
+           class="text-xl font-bold tracking-wide text-white">
+            Manage System
+        </a>
+
+        <!-- NAV -->
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-300">
+
+            <!-- OVERVIEW -->
+            <a data-link href="/admin/dashboard" class="hover:text-white transition">Overview</a>
+
+            <!-- CONTENT GROUP -->
+            <div class="group relative">
+                <button class="hover:text-white transition">Content</button>
+
+                <div class="absolute mt-2 bg-gray-900 border border-gray-800 rounded-lg shadow-xl
+                            p-2 w-40 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+
+                    <a data-link href="/admin/users" class="block px-3 py-2 hover:bg-gray-800 rounded">Users</a>
+                    <a data-link href="/admin/images" class="block px-3 py-2 hover:bg-gray-800 rounded">Images</a>
+                    <a data-link href="/admin/categories"
+                       class="block px-3 py-2 hover:bg-gray-800 rounded">Categories</a>
+                    <a data-link href="/admin/boards" class="block px-3 py-2 hover:bg-gray-800 rounded">Boards</a>
+                </div>
+            </div>
+
+            <!-- SOCIAL -->
+            <div class="group relative">
+                <button class="hover:text-white transition">Social</button>
+
+                <div class="absolute mt-2 bg-gray-900 border border-gray-800 rounded-lg shadow-xl
+                            p-2 w-44 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+
+                    <a data-link href="/admin/contacts" class="block px-3 py-2 hover:bg-gray-800 rounded">Contacts</a>
+                    <a data-link href="/admin/conversations" class="block px-3 py-2 hover:bg-gray-800 rounded">Conversations</a>
+                    <a data-link href="/admin/comments" class="block px-3 py-2 hover:bg-gray-800 rounded">Comments</a>
+                </div>
+            </div>
+
+            <!-- PAYMENTS -->
+            <div class="group relative">
+                <button class="hover:text-white transition">Payments</button>
+
+                <div class="absolute mt-2 bg-gray-900 border border-gray-800 rounded-lg shadow-xl
+                            p-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+
+                    <a data-link href="/admin/subscriptions" class="block px-3 py-2 hover:bg-gray-800 rounded">Subscription
+                        Plans</a>
+                    <a data-link href="/admin/fee" class="block px-3 py-2 hover:bg-gray-800 rounded">Fee</a>
+                    <a data-link href="/admin/payments" class="block px-3 py-2 hover:bg-gray-800 rounded">Payments</a>
+                </div>
+            </div>
+
+            <!-- MODERATION -->
+            <a data-link href="/admin/reports" class="hover:text-white transition">Moderation</a>
+
+            <!-- SUPER ADMIN ONLY -->
+            <div class="group relative">
+                <button class="text-red-400 hover:text-red-300">System</button>
+
+                <div class="absolute mt-2 bg-gray-900 border border-gray-800 rounded-lg shadow-xl
+                            p-2 w-44 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+
+                    <a data-link href="/admin/system/health" class="block px-3 py-2 hover:bg-gray-800 rounded">System
+                        Health</a>
+                    <a data-link href="/admin/system/logs" class="block px-3 py-2 hover:bg-gray-800 rounded">Logs</a>
+                    <a data-link href="/admin/roles" class="block px-3 py-2 hover:bg-gray-800 rounded">Roles</a>
+                    <a data-link href="/admin/settings" class="block px-3 py-2 hover:bg-gray-800 rounded">Settings</a>
+                </div>
+            </div>
+
+        </nav>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="relative group cursor-pointer">
+        <div class="flex items-center gap-3">
+
+            <img src="/assets/images/account.png" class="w-9 h-9 border-white rounded-full border ">
+
+            <div class="flex flex-col">
+                <span id="super-account" class="text-sm font-medium text-gray-200"></span>
+                <span class="text-xs text-red-400">Full Access</span>
+            </div>
+        </div>
+
+        <!-- DROPDOWN -->
+        <div class="absolute right-0 mt-2 w-48 bg-gray-900 border border-gray-800 rounded-xl shadow-xl
+                    opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+
+            <a data-link href="/admin/profile"
+               class="block px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-t-lg">Profile</a>
+
+            <a data-link href="/admin/settings"
+               class="block px-4 py-2 text-gray-300 hover:bg-gray-800">Settings</a>
+
+            <a id="super-logout"
+                    class="block px-4 py-2 text-red-400 hover:bg-gray-800 rounded-b-lg">Logout
+            </a>
+        </div>
+    </div>
+
+</header>

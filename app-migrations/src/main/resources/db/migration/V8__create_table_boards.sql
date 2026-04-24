@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS boards (
+    id VARCHAR(36) NOT NULL PRIMARY KEY,
+
+    user_id VARCHAR(36) NOT NULL,
+
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+
+    slug VARCHAR(255),
+
+    is_secret BOOLEAN NOT NULL DEFAULT FALSE,
+    cover_image_id VARCHAR(60) NULL,
+    is_default BOOLEAN NOT NULL DEFAULT FALSE,
+
+    created_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_date DATETIME NULL ON UPDATE CURRENT_TIMESTAMP,
+    is_deleted BOOLEAN NOT NULL DEFAULT FALSE
+    );

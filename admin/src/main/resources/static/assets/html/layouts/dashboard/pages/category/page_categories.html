@@ -1,0 +1,111 @@
+<section id="category-layout" class="space-y-6">
+
+    <!-- ERROR -->
+    <div id="cate-error-line"
+         class="hidden rounded-xl border border-red-500/60 bg-red-950/40
+                text-red-400 p-3 text-sm font-medium">
+    </div>
+
+    <!-- ===== HEADER ===== -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+            <h2 class="text-2xl font-bold text-slate-100">
+                Category Management
+            </h2>
+            <p class="text-sm text-slate-400">
+                Manage image categories & visibility
+            </p>
+        </div>
+
+        <button
+                id="category-btn-add"
+                class="px-4 py-2.5 rounded-xl text-sm font-semibold
+                       bg-purple-600/90 hover:bg-purple-600 text-white
+                       shadow-lg shadow-purple-900/30"
+        >
+            + Add New
+        </button>
+    </div>
+
+    <!-- ===== FILTER PANEL ===== -->
+    <div class="bg-[#0b1220] border border-slate-800 rounded-2xl p-5 space-y-4">
+
+        <div class="flex items-center gap-2 text-slate-200 font-semibold">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="1.8"
+                 viewBox="0 0 24 24">
+                <path d="M3 4h18M6 10h12M10 16h4"/>
+            </svg>
+            Category Filters
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+            <!-- Search -->
+            <div class="flex flex-col gap-1.5">
+                <label class="text-xs text-slate-400 uppercase">Search</label>
+                <input
+                        id="cat-search"
+                        type="text"
+                        placeholder="Search keywords..."
+                        class="bg-[#020617] border border-slate-700 rounded-xl
+                               px-3 py-2.5 text-sm text-slate-200
+                               placeholder-slate-500"
+                />
+            </div>
+
+            <!-- Featured -->
+            <div class="flex flex-col gap-1.5">
+                <label class="text-xs text-slate-400 uppercase">Featured</label>
+                <select
+                        id="cat-filter-featured"
+                        class="bg-[#020617] border border-slate-700 rounded-xl
+                               px-3 py-2.5 text-sm text-slate-200"
+                >
+                    <option value="">All</option>
+                    <option value="true">Featured</option>
+                    <option value="false">Normal</option>
+                </select>
+            </div>
+
+            <!-- Deleted -->
+            <div class="flex flex-col gap-1.5">
+                <label class="text-xs text-slate-400 uppercase">Status</label>
+                <select
+                        id="cat-filter-deleted"
+                        class="bg-[#020617] border border-slate-700 rounded-xl
+                               px-3 py-2.5 text-sm text-slate-200"
+                >
+                    <option value="">All</option>
+                    <option value="false">Active</option>
+                    <option value="true">Deleted</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== TABLE ===== -->
+    <div class="bg-[#0f172a] border border-slate-800 rounded-2xl overflow-hidden">
+
+        <table class="min-w-full text-sm">
+
+            <thead class="bg-[#020617] text-slate-400 uppercase text-xs">
+            <tr>
+                <th class="px-6 py-4 text-left">Name</th>
+                <th class="px-6 py-4 text-left">Image Quantity</th>
+                <th class="px-6 py-4 text-left">Featured</th>
+                <th class="px-6 py-4 text-left">Public</th>
+                <th class="px-6 py-4 text-left hidden md:table-cell">Created</th>
+                <th class="px-6 py-4 text-left hidden md:table-cell">Updated</th>
+                <th class="px-6 py-4 text-right">Action</th>
+            </tr>
+            </thead>
+
+            <tbody id="category-table-body"
+                   class="divide-y divide-slate-800 bg-[#020617]">
+            <!-- append data rows -->
+            </tbody>
+
+        </table>
+    </div>
+
+</section>

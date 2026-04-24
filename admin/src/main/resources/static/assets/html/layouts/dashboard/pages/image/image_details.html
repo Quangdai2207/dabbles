@@ -1,0 +1,279 @@
+<section id="image-detail-admin" class="p-3 md:p-4">
+
+    <div class="max-w-7xl mx-auto space-y-6">
+
+        <!-- STICKY ACTION BAR -->
+        <div class="bg-gray-950/90 backdrop-blur border-b border-gray-800 p-3 rounded-xl">
+            <div class="flex flex-wrap gap-3 justify-between items-center">
+
+                <h2 class="text-xl font-semibold text-white">Image Details Preview</h2>
+
+                <div class="flex gap-2">
+                    <button id="image-details-btn-delete"
+                            class="px-4 py-2 rounded-xl border border-red-600 hover:bg-red-700 text-sm">
+                        Lock image
+                    </button>
+
+                    <button id="image-details-btn-feature"
+                            class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-sm">
+                        Feature
+                    </button>
+
+                    <a data-link href="/admin/images"
+                       class="px-4 py-2 rounded-xl bg-gray-700 hover:bg-gray-800 text-sm">
+                        Back
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+            <!-- LEFT COLUMN - IMAGE VIEWER -->
+            <div class="lg:col-span-2 space-y-6">
+
+                <!-- MAIN IMAGE CONTAINER -->
+                <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 overflow-hidden">
+                    <div class="flex flex-col items-center">
+
+                        <div class="viewer-frame w-full h-[70vh] max-h-[70vh]
+                                    flex items-center justify-center
+                                    bg-black/40 rounded-xl overflow-hidden">
+                            <img id="image-details-current-size"
+                                 class="max-w-full max-h-[70vh] p-2 object-contain rounded-xl transition-opacity duration-300"
+                                 alt="Original image"
+                                 src="https://demofree.sirv.com/nope-not-here.jpg?w=1080"
+                                 onerror="this.src='https://demofree.sirv.com/nope-not-here.jpg'">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- THUMBNAILS PREVIEW -->
+                <div class="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+                    <p class="text-xs uppercase tracking-wider text-gray-500 mb-4">Preview Sizes</p>
+
+                    <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-4">
+                        <!-- Thumbnail 236px -->
+                        <div class="group cursor-pointer" data-size="236" data-label="236px">
+                            <img id="image-details-w236"
+                                 src="https://demofree.sirv.com/nope-not-here.jpg?w=1080"
+                                 onerror="this.src='https://demofree.sirv.com/nope-not-here.jpg?w=236'"
+                                 class="w-full aspect-square object-cover rounded-lg border-2 border-gray-700
+                            group-hover:border-white group-hover:opacity-90
+                            transition-all duration-200">
+                            <p class="text-center text-xs text-gray-500 mt-2 group-hover:text-white transition">
+                                236px
+                            </p>
+                        </div>
+
+                        <!-- Thumbnail 474px -->
+                        <div class="group cursor-pointer" data-size="474" data-label="474px">
+                            <img id="image-details-w474"
+                                 src="https://demofree.sirv.com/nope-not-here.jpg?w=1080"
+                                 onerror="this.src='https://demofree.sirv.com/nope-not-here.jpg?w=474'"
+                                 class="w-full aspect-square object-cover rounded-lg border-2 border-gray-700
+                            group-hover:border-white group-hover:opacity-90
+                            transition-all duration-200">
+                            <p class="text-center text-xs text-gray-500 mt-2 group-hover:text-white transition">
+                                474px
+                            </p>
+                        </div>
+
+                        <!-- Thumbnail 736px -->
+                        <div class="group cursor-pointer" data-size="736" data-label="736px">
+                            <img id="image-details-w736"
+                                 src="https://demofree.sirv.com/nope-not-here.jpg?w=1080"
+                                 onerror="this.src='https://demofree.sirv.com/nope-not-here.jpg?w=736'"
+                                 class="w-full aspect-square object-cover rounded-lg border-2 border-gray-700
+                            group-hover:border-white group-hover:opacity-90
+                            transition-all duration-200">
+                            <p class="text-center text-xs text-gray-500 mt-2 group-hover:text-white transition">
+                                736px
+                            </p>
+                        </div>
+
+                        <!-- Thumbnail 1080px -->
+                        <div class="group cursor-pointer" data-size="1080" data-label="1080px">
+                            <img id="image-details-w1080"
+                                 src="https://demofree.sirv.com/nope-not-here.jpg?w=1080"
+                                 onerror="this.src='https://demofree.sirv.com/nope-not-here.jpg?w=1080'"
+                                 class="w-full aspect-square object-cover rounded-lg border-2 border-gray-700
+                            group-hover:border-white group-hover:opacity-90
+                            transition-all duration-200">
+                            <p class="text-center text-xs text-gray-500 mt-2 group-hover:text-white transition">
+                                1080px
+                            </p>
+                        </div>
+
+                        <!-- Thumbnail Original -->
+                        <div class="group cursor-pointer" data-size="original" data-label="Original">
+                            <img id="image-details-original"
+                                 src=""
+                                 onerror="this.src='https://demofree.sirv.com/nope-not-here.jpg'"
+                                 class="w-full aspect-square object-cover rounded-lg border-2 border-white ring-2 ring-blue-500
+                            group-hover:opacity-90 transition-all duration-200">
+                            <p class="text-center text-xs text-white font-medium mt-2">
+                                Original
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="space-y-5">
+
+                <!-- USER CARD -->
+                <div class="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+                    <div class="flex items-center gap-3">
+                        <!-- AVATAR + STATUS -->
+                        <div class="relative">
+                            <img id="image-details-creator-avatar"
+                                 src="https://demofree.sirv.com/nope-not-here.jpg?w=1080"
+                                 onerror="this.src='https://demofree.sirv.com/nope-not-here.jpg'"
+                                 class="w-12 h-12 rounded-full object-cover"/>
+
+                            <!-- STATUS DOT -->
+                            <span id="image-details-creator-status"
+                                  class="absolute bottom-0 right-0 w-3 h-3 rounded-full">
+                            </span>
+                        </div>
+                        <div>
+                            <p id="image-details-creator-name" class="text-white font-medium text-sm"></p>
+                            <p class="text-gray-500 text-xs">Uploader</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TABS -->
+                <div class="bg-gray-900 border border-gray-800 rounded-2xl">
+
+                    <!-- TAB HEADER -->
+                    <div class="flex border-b border-gray-800 text-sm">
+                        <button data-tab="info"
+                                class="cursor-pointer image-details-tab-btn px-4 py-3 text-gray-300 hover:text-white active">
+                            Info
+                        </button>
+                        <button data-tab="categories"
+                                class="cursor-pointer image-details-tab-btn px-4 py-3 text-gray-300 hover:text-white">
+                            Categories
+                        </button>
+                        <button data-tab="log"
+                                class="cursor-pointer image-details-tab-btn px-4 py-3 text-gray-300 hover:text-white">
+                            Activity
+                        </button>
+                    </div>
+
+                    <!-- TAB BODY -->
+                    <div class="p-3 space-y-5">
+                        <!-- INFO TAB -->
+                        <div class="tab-content" id="tab-info">
+                            <div class="px-3 rounded-xl bg-gray-900 text-xs">
+
+                                <h3 class="text-sm font-semibold text-white mb-4 tracking-wide">
+                                    Image information
+                                </h3>
+
+                                <div class="divide-y divide-gray-800 text-sm">
+
+                                    <div class="flex items-center justify-between py-2">
+                                        <span class="text-gray-400">Description</span>
+                                        <span id="image-details-desc"
+                                              class="text-gray-400 text-right truncate max-w-[60%]"></span>
+                                    </div>
+
+                                    <div class="flex items-center justify-between py-2">
+                                        <span class="text-gray-400">ID</span>
+                                        <span id="image-details-id"
+                                              class="text-gray-400 text-right truncate max-w-[60%]"></span>
+                                    </div>
+
+                                    <div class="flex items-center justify-between py-2">
+                                        <span class="text-gray-400">Resolution</span>
+                                        <span id="image-details-resolution"
+                                              class="text-gray-400 font-medium"></span>
+                                    </div>
+
+                                    <div class="flex items-center justify-between py-2">
+                                        <span class="text-gray-400">File Size</span>
+                                        <span id="image-details-size"
+                                              class="text-gray-400 font-medium"></span>
+                                    </div>
+
+                                    <div class="py-2">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-gray-400">Created</span>
+                                            <div class="text-right space-y-1">
+                                                <p id="image-details-created-time"
+                                                   class="px-2 py-0.5 text-[11px] bg-gray-700/40 rounded-lg text-white inline-block"></p>
+                                                <p id="image-details-created-date"
+                                                   class="px-2 py-0.5 text-[11px] bg-gray-700/40 rounded-lg text-white inline-block"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center justify-between py-2">
+                                        <span class="text-gray-400">Status view</span>
+                                        <span id="image-details-status"
+                                              class="px-2 py-1 rounded-lg text-xs font-semibold bg-green-500/20 text-green-400"></span>
+                                    </div>
+
+                                    <div class="flex items-center justify-between py-2">
+                                        <span class="text-gray-400">Likes total</span>
+                                        <span id="image-details-like"
+                                              class="text-gray-400 font-medium"></span>
+                                    </div>
+
+                                    <div class="flex items-center justify-between py-2">
+                                        <span class="text-gray-400">Comments total</span>
+                                        <span id="image-details-comment"
+                                              class="text-gray-400 font-medium"></span>
+                                    </div>
+
+                                    <div class="flex items-center justify-between py-2">
+                                        <span class="text-gray-400">Price</span>
+                                        <span id="image-details-price"
+                                              class="text-white font-medium"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- CATEGORY TAB -->
+                        <div class="tab-content hidden" id="tab-categories">
+                            <div id="image-details-categories" class="flex flex-wrap gap-2"></div>
+                        </div>
+
+                        <!-- LOG TAB -->
+                        <div class="tab-content hidden" id="tab-log">
+                            <div id="image-details-logs" class="space-y-2 text-xs text-gray-400 text-center font-semibold text-xl"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 border border-gray-800 rounded-2xl h-[218px] p-5 flex flex-col">
+                    <p class="text-xs uppercase tracking-wider text-gray-500 mb-1">
+                        Logs
+                    </p>
+                    <div class="mt-auto space-y-2">
+                        <button id="btn-lock-comment"
+                                class="w-full p-5 rounded-xl bg-gray-700 hover:bg-gray-800 text-sm">
+                            Lock Comments
+                        </button>
+                        <button id="btn-toggle-public"
+                                class="w-full p-5 rounded-xl bg-orange-600 hover:bg-orange-700 text-sm">
+                            Toggle Public
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>

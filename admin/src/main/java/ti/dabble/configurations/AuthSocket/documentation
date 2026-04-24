@@ -1,0 +1,83 @@
+Tieng Viet
+authSocket PACKAGE
+
+Package authSocket la noi chua 2 Class Component quan trong de cau hinh xac dinh danh tinh nguoi dung va quan ly
+phien ket noi tu nguoi dung mot cach chu dong. Trong do:
+
+    1. WsAuthInterceptor Component
+       Day la Class Component xac dinh danh tinh nguoi dung truy cap web socket thong qua token tu nguoi dung
+       cu the.
+
+       Class Component nay duoc khoi tao boi vi ung dung Spring Frontend tai thu muc admin [FE_Admin] dong vai tro
+       la mot Proxy BFF (Backend For Frontend) khong quan ly truc tiep nguoi dung bang HttpSession nhu server goc,
+       nen khi mot nguoi dung ket noi vao socket thi BFF hoan toan khong the tu nhan biet duoc danh tinh tu nguoi dung
+       do. Class Component WsAuthInterceptor se giup BFF thuc hien duoc dieu nay khi nguoi dung login thanh cong va
+       token la du lieu can thiet de xac thuc nguoi dung do.
+
+       Co the review Logic tai "admin/src/main/resources/static/assets/js/app/main.js", Day la file render chinh cho
+       ung dung SPA va cau hinh ket noi Web Socket tu SPA.
+
+    2. WebSocketEvenListener Component
+       Day la Class Component quan ly phien ket noi Socket cho ca 2 trang thai Connect va Disconnect ma khong phu
+       thuoc vao hanh dong truc tiep tu nguoi dung.
+
+       Voi trang thai Login thanh cong, socket tu nhan biet nguoi dung ket noi socket
+
+       Voi trang thai Disconnect (token het han tu thoat phien va nguoi dung thuc hien logout), socket tu nhan
+       biet va gui thong bao thong qua luong Downstream cua Socket den UI da Subscribe thong bao
+
+
+Nhu vay, Trong truong hop ung dung admin Spring Frontend cua toi dong vai tro la mot BFF thi day la 2 Class Component
+quan trong khi su dung dich vu Web Socket ma hoan toan khong phu thuoc vao BE goc cua toan bo du an => server [dabble]
+
+2 Class Component nay ap dung cho nguoi dung truy cap truc tiep tren ung dung admin BFF, doi voi nguoi dung truy cap
+tu mot ung dung khac thi WebsocketController la noi ghi nhan du lieu
+----
+English-sub
+authSocket PACKAGE
+
+The authSocket package contains two important Component classes
+responsible for configuring user identity verification and proactively
+managing user connection sessions. Specifically:
+
+    1.  WsAuthInterceptor Component
+        This is a Component class responsible for identifying users who access
+        the WebSocket through a specific user token.
+
+        This Component class is initialized because the Spring Frontend
+        application located in the admin [FE_Admin] directory acts as a
+        Proxy BFF (Backend For Frontend) and does not directly manage users
+        via HttpSession like the core backend server.
+
+        Therefore, when a user connects to the WebSocket, the BFF cannot
+        automatically recognize the identity of that user.
+
+        The WsAuthInterceptor Component class helps the BFF perform user
+        identification when the user successfully logs in, where the token
+        is the required data used to authenticate that user.
+
+        The logic can be reviewed at:
+            admin/src/main/resources/static/assets/js/app/main.js
+
+    2.  WebSocketEventListener Component
+        This is a Component class responsible for managing WebSocket connection
+        sessions for both the CONNECT and DISCONNECT states, without relying
+        on direct user actions.
+
+        In the case of a successful login, the socket automatically recognizes
+        that the user has connected to the WebSocket.
+
+        In the DISCONNECT state (when the token expires and the session ends,
+        or when the user performs a logout), the socket automatically detects
+        the event and sends a notification through the downstream channel of
+        the WebSocket to the UI that has subscribed to these notifications.
+
+Conclusion
+Therefore, in the case where my Spring Frontend admin application acts
+as a BFF, these two Component classes are essential when using the
+WebSocket service without depending on the core backend of the entire
+project, which is the server [dabble].
+
+These two Component classes are applied to users who access the application directly through the admin BFF.
+For users accessing from another application, the WebsocketController is responsible for receiving and
+recording the data.

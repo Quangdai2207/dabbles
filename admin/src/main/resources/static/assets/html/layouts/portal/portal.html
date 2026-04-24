@@ -1,0 +1,58 @@
+<div class="min-h-screen flex pt-[72px]">
+
+    <!-- SIDEBAR -->
+    <aside class="w-64 bg-gray-900 border-r border-gray-800 hidden md:flex flex-col">
+
+        <!-- HEADER -->
+        <div class="px-6 py-5 border-b border-gray-800">
+            <h1 class="text-lg font-semibold tracking-wide text-white">Reviewer Panel</h1>
+            <p class="text-xs text-gray-400">Role: Read & Review Only</p>
+        </div>
+
+        <!-- NAVIGATION -->
+        <nav class="flex-1 px-4 py-6 space-y-1 text-sm">
+
+            <p class="text-gray-500 text-xs px-3 mb-1">GENERAL</p>
+
+            <a href="/account/portal" data-link
+               class="block px-3 py-2 rounded-lg hover:bg-gray-800 transition">
+                Dashboard Overview
+            </a>
+
+            <p class="text-gray-500 text-xs px-3 mt-4 mb-1">MODERATION</p>
+
+            <a href="/account/pending-images" data-link
+               class="block px-3 py-2 rounded-lg hover:bg-gray-800 transition">
+                Pending Images
+            </a>
+
+            <a href="/account/pending-accounts" data-link
+               class="block px-3 py-2 rounded-lg hover:bg-gray-800 transition">
+                Account Requests
+            </a>
+
+            <a href="/account/reports" data-link
+               class="block px-3 py-2 rounded-lg hover:bg-gray-800 transition">
+                Reports Center
+            </a>
+
+            <p class="text-gray-500 text-xs px-3 mt-4 mb-1">SYSTEM</p>
+
+            <a href="/account/logs" data-link
+               class="block px-3 py-2 rounded-lg hover:bg-gray-800 transition">
+                Activity Logs
+            </a>
+
+            <a href="/account/settings" data-link
+               class="block px-3 py-2 rounded-lg hover:bg-gray-800 transition">
+                Profile Settings
+            </a>
+        </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main id="portal-area" class="flex-1 p-8 space-y-10">
+        <!-- ** Append Reviewer portal pages here -->
+    </main>
+
+</div>

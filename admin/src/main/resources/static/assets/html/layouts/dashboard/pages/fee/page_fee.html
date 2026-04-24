@@ -1,0 +1,87 @@
+<!-- PAGE HEADER -->
+<div class="flex items-center justify-between mb-5">
+    <div>
+        <h2 class="text-xl font-semibold text-white">
+            Fee Management
+        </h2>
+        <p class="text-sm text-slate-400 mt-1">
+            Manage transaction fee configurations
+        </p>
+    </div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
+    <!-- CREATE FEE -->
+    <form class="xl:col-span-3 h-full" id="fee-add-form">
+        <div class="bg-[#020617] border border-slate-800
+                    rounded-2xl p-6
+                    h-full flex flex-col">
+
+            <!-- FORM HEADER -->
+            <div class="mb-4">
+                <h3 class="text-sm font-semibold text-white">
+                    Create New Fee
+                </h3>
+                <p class="text-xs text-slate-500 mt-1">
+                    Configure a new transaction fee
+                </p>
+            </div>
+
+            <!-- FORM BODY -->
+            <div class="flex flex-col gap-5 flex-1">
+                <!-- TYPE -->
+                <div>
+                    <label class="text-xs text-slate-400 mb-1 block">
+                        Fee Type
+                    </label>
+                    <select
+                            name="type"
+                            class="w-full px-3 py-2 bg-[#020617]
+                               border border-slate-700 rounded-lg
+                               text-sm text-white
+                               focus:outline-none focus:border-sky-500">
+                        <option value="" disabled selected>
+                            Select fee type
+                        </option>
+                        <option value="WITHDRAWAL">WITHDRAWAL</option>
+                        <option value="DEPOSIT">DEPOSIT</option>
+                        <option value="SALE">SALE</option>
+                        <option value="SUBSCRIBE">SUBSCRIBE</option>
+                        <option value="PURCHASE">PURCHASE</option>
+                    </select>
+                </div>
+
+                <!-- PERCENT -->
+                <div>
+                    <label class="text-xs text-slate-400 mb-1 block">
+                        Percentage (%)
+                    </label>
+                    <input
+                            name="percent"
+                            type="number"
+                            class="w-full px-3 py-2 bg-[#020617]
+                               border border-slate-700 rounded-lg
+                               text-sm text-white"
+                            placeholder="Enter percent" />
+                </div>
+                <p id="fee-error"  class="text-xs italic text-center text-gray-400"></p>
+            </div>
+            <!-- ACTION -->
+            <div class="pt-6 border-t border-slate-800 mt-2">
+                <button type="submit"
+                        class="w-full py-2 rounded-xl
+                               bg-emerald-600
+                               text-sm font-semibold text-white
+                               hover:bg-emerald-500">
+                    Add Fee
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <!-- FEE CARDS -->
+    <div class="xl:col-span-9
+                grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
+         id="fee-cards">
+    </div>
+</div>
+</section>

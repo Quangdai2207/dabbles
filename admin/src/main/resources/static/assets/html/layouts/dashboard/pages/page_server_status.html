@@ -1,0 +1,117 @@
+<section id="section-server-status" class="p-8">
+
+    <!-- HEADER -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-white tracking-wide">Server Status</h1>
+        <p class="text-gray-400 mt-1">Theo dõi toàn bộ hệ thống theo thời gian thực</p>
+    </div>
+
+    <!-- TOP METRICS -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+
+        <!-- CPU -->
+        <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-5 shadow-lg">
+            <div class="flex justify-between items-center">
+                <h3 class="text-gray-300 font-semibold">CPU Load</h3>
+                <div class="w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
+            </div>
+            <p id="cpu-percent" class="text-3xl font-bold text-blue-400 mt-3">0%</p>
+
+            <div class="w-full bg-gray-700/50 rounded-full h-2 mt-4">
+                <div id="cpu-bar" class="bg-blue-500 h-2 rounded-full transition-all duration-500"
+                     style="width: 10%;"></div>
+            </div>
+        </div>
+
+        <!-- RAM -->
+        <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-5 shadow-lg">
+            <div class="flex justify-between items-center">
+                <h3 class="text-gray-300 font-semibold">RAM Usage</h3>
+                <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+            </div>
+            <p id="ram-percent" class="text-3xl font-bold text-green-400 mt-3">0%</p>
+
+            <div class="w-full bg-gray-700/50 rounded-full h-2 mt-4">
+                <div id="ram-bar" class="bg-green-500 h-2 rounded-full transition-all duration-500"
+                     style="width: 10%;"></div>
+            </div>
+        </div>
+
+        <!-- DISK -->
+        <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-5 shadow-lg">
+            <div class="flex justify-between items-center">
+                <h3 class="text-gray-300 font-semibold">Disk Space</h3>
+                <div class="w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
+            </div>
+            <p id="disk-free" class="text-2xl font-bold text-yellow-400 mt-3">Loading...</p>
+            <p class="text-gray-400 text-sm">Free / Total</p>
+        </div>
+    </div>
+
+    <!-- DETAILS GRID -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        <!-- SERVER INFO -->
+        <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 shadow-xl">
+            <h3 class="text-xl font-semibold text-white mb-4 border-b border-white/10 pb-2">Server Information</h3>
+
+            <div class="space-y-3 text-gray-300 text-sm">
+                <p><strong>OS:</strong> <span id="svr-os">Loading...</span></p>
+                <p><strong>CPU Cores:</strong> <span id="svr-core">Loading...</span></p>
+                <p><strong>Java:</strong> <span id="svr-java">Loading...</span></p>
+                <p><strong>Profiles:</strong> <span id="svr-profiles">Loading...</span></p>
+                <p><strong>Uptime:</strong> <span id="svr-uptime">Loading...</span></p>
+            </div>
+        </div>
+
+        <!-- DATABASE -->
+        <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 shadow-xl">
+            <h3 class="text-xl font-semibold text-white mb-4 border-b border-white/10 pb-2">Database Status</h3>
+
+            <div class="space-y-3 text-gray-300 text-sm">
+                <p><strong>Type:</strong> <span id="db-type">Loading...</span></p>
+                <p><strong>Active:</strong> <span id="db-active">Loading...</span></p>
+                <p><strong>Idle:</strong> <span id="db-idle">Loading...</span></p>
+                <p><strong>Pool Size:</strong> <span id="db-pool">Loading...</span></p>
+                <p>
+                    <strong>Status:</strong>
+                    <span id="db-status" class="px-2 py-1 rounded text-xs font-bold">Loading...</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- SYSTEM HEALTH -->
+        <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 shadow-xl lg:col-span-2">
+            <h3 class="text-xl font-semibold text-white mb-4 border-b border-white/10 pb-2">System Health</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-gray-300">
+
+                <div>
+                    <p class="text-gray-400">Ping</p>
+                    <p id="ping-time" class="text-lg font-bold text-blue-300">Loading...</p>
+                </div>
+
+                <div>
+                    <p class="text-gray-400">Gateway</p>
+                    <p id="svc-gateway" class="font-semibold">Loading...</p>
+                </div>
+
+                <div>
+                    <p class="text-gray-400">Mail Service</p>
+                    <p id="svc-mail" class="font-semibold">Loading...</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- REFRESH -->
+    <div class="mt-10 flex justify-end">
+        <button id="btn-refresh-status"
+                class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 transition rounded-xl shadow-lg font-semibold text-white">
+            Refresh
+        </button>
+    </div>
+
+</section>

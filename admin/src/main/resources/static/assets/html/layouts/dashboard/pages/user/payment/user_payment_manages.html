@@ -1,0 +1,142 @@
+<section
+        id="payment-overview-panel"
+        class="bg-gray-950 border border-gray-800 rounded-2xl
+           p-8 space-y-8 mt-20">
+
+    <!-- HEADER -->
+    <div>
+        <h3 class="text-xl font-semibold text-white">
+            Payment Overview
+        </h3>
+        <p class="text-sm text-gray-400 mt-1">
+            High-level breakdown of user payment activities
+        </p>
+    </div>
+
+    <!-- TOTAL PAID (TOP - MASTER) -->
+    <div
+            class="bg-gradient-to-br from-blue-900/30 to-gray-900
+               border border-blue-700/40
+               rounded-2xl p-6">
+
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+
+            <div>
+                <p class="text-xs uppercase tracking-wide text-blue-400">
+                    Total Paid
+                </p>
+
+                <p class="text-4xl font-semibold text-white mt-1">
+                    $<span id="payment-overview-total-amount">0.00</span>
+                </p>
+
+                <p class="text-sm text-gray-400 mt-1">
+                    <span id="payment-overview-total-count">USD</span>
+                </p>
+            </div>
+
+            <div class="self-start lg:self-center">
+                <button
+                        data-type="all"
+                        class="px-4 py-2 rounded-xl btn-type
+                           border border-blue-700
+                           text-sm text-blue-400
+                           hover:bg-blue-900/20">
+                    View all payments history →
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BREAKDOWN -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- DEPOSIT -->
+        <div
+                class="flex flex-col justify-between
+                   bg-gray-900 border border-emerald-500/30
+                   rounded-2xl p-6 min-h-[180px]">
+
+            <div class="space-y-2">
+                <p class="text-xs uppercase tracking-wide text-emerald-400">
+                    Deposit - Private Wallet
+                </p>
+
+                <p class="text-3xl font-semibold text-white">
+                    $<span id="payment-overview-deposit-amount">0.00</span>
+                </p>
+
+                <p class="text-sm text-gray-500">
+                    <span id="payment-overview-deposit-count">USD</span>
+                </p>
+            </div>
+
+            <div class="pt-6 border-t border-gray-800">
+                <button
+                        data-type="deposit"
+                        class="btn-type text-sm text-emerald-400 hover:underline">
+                    Deposit history →
+                </button>
+            </div>
+        </div>
+
+        <!-- SUBSCRIPTION -->
+        <div
+                class="flex flex-col justify-between
+                   bg-gray-900 border border-violet-500/30
+                   rounded-2xl p-6 min-h-[180px]">
+
+            <div class="space-y-2">
+                <p class="text-xs uppercase tracking-wide text-violet-400">
+                    Subscription - Renews
+                </p>
+
+                <p class="text-3xl font-semibold text-white">
+                    $<span id="payment-overview-subscription-amount">0.00</span>
+                </p>
+
+                <p class="text-sm text-gray-500">
+                    <span id="payment-overview-subscription-count">USD</span>
+                </p>
+            </div>
+
+            <div class="pt-6 border-t border-gray-800">
+                <button
+                        data-type="subscribe"
+                        class="btn-type text-sm text-violet-400 hover:underline">
+                    Subscription history →
+                </button>
+            </div>
+        </div>
+
+        <!-- PURCHASE -->
+        <div
+                class="flex flex-col justify-between
+                   bg-gray-900 border border-amber-500/30
+                   rounded-2xl p-6 min-h-[180px]">
+
+            <div class="space-y-2">
+                <p class="text-xs uppercase tracking-wide text-amber-400">
+                    Purchase - Images
+                </p>
+
+                <p class="text-3xl font-semibold text-white">
+                    $<span id="payment-overview-purchase-amount">0.00</span>
+                </p>
+
+                <p class="text-sm text-gray-500">
+                    <span id="payment-overview-purchase-count">USD</span>
+                </p>
+            </div>
+
+            <div class="pt-6 border-t border-gray-800">
+                <button
+                        data-type="purchase"
+                        class="btn-type text-sm text-amber-400 hover:underline">
+                    Purchase history →
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>

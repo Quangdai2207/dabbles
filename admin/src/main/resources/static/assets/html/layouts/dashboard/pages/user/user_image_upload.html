@@ -1,0 +1,124 @@
+<section id="user-details-image-uploads" class="space-y-4 relative">
+
+    <!-- TITLE -->
+    <div class="flex items-center justify-between">
+        <h3 class="text-sm font-semibold text-white">
+            UPLOADED IMAGES
+            <span class="text-xs text-gray-400 font-normal pl-1 pt-2">(by this user) ➤ uploaded<span> ➤</span></span>
+            <span id="user-details-uploaded-path-switch" class="text-xs text-white font-semibold">all-image</span>
+            <span id="user-details-uploaded-path-alert"
+                  class="ml-6 text-xs text-orange-400 italic font-semibold"></span>
+        </h3>
+    </div>
+
+    <!-- TOOLBAR -->
+    <header class="flex flex-wrap items-center justify-between gap-4">
+
+        <!-- FILTER LEFT -->
+        <div class="flex flex-wrap gap-3">
+            <input id="user-detail-image-upload-search-input"
+                   type="text"
+                   placeholder="Search title / image id..."
+                   class="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-white w-64">
+
+            <select id="user-detail-image-upload-filter-visible"
+                    class="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-white">
+                <option value="">All visibility</option>
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+            </select>
+
+            <select id="user-detail-image-upload-filter-latest"
+                    class="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-white">
+                <option value="">Select option filter</option>
+                <option value="1">Oldest</option>
+                <option value="2">Most liked</option>
+                <option value="3">Largest size</option>
+            </select>
+            <button id="user-details-upload-btn-load-more"
+                    class="cursor-pointer text-[11px] px-2 py-2 bg-blue-950 hover:bg-blue-800 rounded-lg text-white font-semibold">
+                Load more
+            </button>
+        </div>
+        <!-- QUICK ACTION -->
+        <div class="flex gap-2">
+            <button id="user-details-upload-btn-category-view"
+                    class="cursor-pointer text-[10px] px-2 py-2 bg-orange-600 hover:bg-orange-600 rounded-lg text-white font-semibold">
+                Categories view
+            </button>
+            <button id="user-details-upload-btn-all-images"
+                    class="cursor-pointer text-[10px] px-2 py-2 bg-purple-800 hover:bg-purple-700 rounded-lg text-white font-semibold">
+                All Images
+            </button>
+            <button id="user-details-upload-btn-blacklist"
+                    class="cursor-pointer text-[10px] px-2 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded-lg text-white font-semibold">
+                Blacklist
+            </button>
+            <button id="user-details-upload-btn-reload-images"
+                    class="cursor-pointer text-[10px] px-2 py-2 bg-lime-500 hover:bg-lime-600 border border-lime-700 rounded-lg text-lime-950 font-semibold">
+                Reload images
+            </button>
+        </div>
+    </header>
+
+    <!-- CARD WRAPPER -->
+    <div class="relative">
+
+        <!-- LEFT ARROW -->
+        <button
+                id="image-scroll-left"
+                class="
+                absolute -left-3 top-1/2 -translate-y-1/2 z-10
+                w-9 h-9 rounded-full z-1
+                bg-gray-800 border border-gray-700
+                flex items-center justify-center
+                text-gray-600 text-xs
+                opacity-40 scale-95
+                transition-all duration-200
+                hover:opacity-80 hover:scale-110 hover:bg-gray-700
+                cursor-pointer pl-1
+        ">
+            ◀
+        </button>
+
+        <!-- RIGHT ARROW -->
+        <button
+                id="image-scroll-right"
+                class="
+                absolute -right-4 top-1/2 -translate-y-1/2 z-10
+                w-9 h-9 rounded-full
+                bg-gray-800 border border-gray-700
+                flex items-center justify-center
+                text-gray-600 text-xs
+                opacity-40 scale-95
+                transition-all duration-200
+                hover:opacity-80 hover:scale-110 hover:bg-gray-700
+                cursor-pointer pr-1
+        ">
+            ▶
+        </button>
+
+        <!-- SCROLLABLE IMAGE GRID -->
+        <main
+                id="user-details-card-image"
+                class="
+                grid
+                grid-flow-row
+                grid-cols-[repeat(20,240px)]
+                gap-6
+
+                max-h-[70vh]
+                overflow-auto
+
+                justify-start
+                content-start
+
+                scroll-smooth
+
+                [scrollbar-width:none]
+                [-ms-overflow-style:none]
+                [&::-webkit-scrollbar]:hidden
+              ">
+        </main>
+    </div>
+</section>

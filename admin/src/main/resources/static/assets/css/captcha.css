@@ -1,0 +1,10 @@
+/* Giảm kích thước Turnstile xuống 80% */
+#cf-turnstile iframe {
+    transform: scale(0.5);
+    transform-origin: top left;
+}
+
+#turnstile-wrapper {
+    transform: scale(0.8);
+    transform-origin: top left;
+}

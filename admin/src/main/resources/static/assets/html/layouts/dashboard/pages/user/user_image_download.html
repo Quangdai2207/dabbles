@@ -1,0 +1,112 @@
+<section id="user-details-image-download" class="space-y-4 relative">
+
+    <!-- TITLE -->
+    <div class="flex items-center justify-between">
+        <h3 class="text-sm font-semibold text-white">
+            DOWNLOADED IMAGES
+            <span class="text-xs text-gray-400 font-normal">(by this user)</span>
+        </h3>
+    </div>
+
+    <!-- TOOLBAR -->
+    <header class="flex flex-wrap items-center justify-between gap-4">
+
+        <!-- FILTER LEFT -->
+        <div class="flex flex-wrap gap-3">
+            <input
+                    type="text"
+                    placeholder="Search title / image id..."
+                    class="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-white w-64">
+
+            <select class="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-white">
+                <option>All visibility</option>
+                <option>Public</option>
+                <option>Private</option>
+            </select>
+
+            <select class="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-white">
+                <option>Status</option>
+                <option>Normal</option>
+                <option>Blacklisted</option>
+                <option>Flagged</option>
+            </select>
+
+            <select class="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-white">
+                <option>Newest</option>
+                <option>Oldest</option>
+                <option>Most liked</option>
+                <option>Largest size</option>
+            </select>
+        </div>
+<!--        &lt;!&ndash; QUICK ACTION &ndash;&gt;-->
+<!--        <div class="flex gap-4">-->
+<!--            <button id="user-details-upload-btn-all-images"-->
+<!--                    class="cursor-pointer text-xs px-4 py-2 bg-purple-800 hover:bg-purple-700 rounded-lg text-white font-semibold">-->
+<!--                All Images-->
+<!--            </button>-->
+<!--            <button id="user-details-upload-btn-blacklist"-->
+<!--                    class="cursor-pointer text-xs px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded-lg text-white font-semibold">-->
+<!--                Blacklist-->
+<!--            </button>-->
+<!--        </div>-->
+    </header>
+
+    <!-- CARD WRAPPER -->
+    <div class="relative">
+
+        <!-- LEFT ARROW -->
+        <button
+                id="image-scroll-left-download"
+                class="
+                absolute -left-3 top-1/2 -translate-y-1/2 z-10
+                w-9 h-9 rounded-full
+                bg-gray-800 border border-gray-700
+                flex items-center justify-center
+                text-gray-600 text-xs
+                opacity-0 scale-95
+                transition-all duration-200
+                hover:opacity-80 hover:scale-110 hover:bg-gray-700
+                cursor-pointer pl-1
+        ">
+            ◀
+        </button>
+
+        <!-- RIGHT ARROW -->
+        <button
+                id="image-scroll-right-download"
+                class="
+                absolute -right-4 top-1/2 -translate-y-1/2 z-10
+                w-9 h-9 rounded-full
+                bg-gray-800 border border-gray-700
+                flex items-center justify-center
+                text-gray-600 text-xs
+                opacity-0 scale-95
+                transition-all duration-200
+                hover:opacity-80 hover:scale-110 hover:bg-gray-700
+                cursor-pointer pr-1
+        ">
+            ▶
+        </button>
+
+        <!-- SCROLLABLE IMAGE GRID -->
+        <main
+                id="user-details-card-image-downloaded"
+                class="
+                grid
+                grid-rows-2
+                grid-flow-col
+                auto-cols-[calc((100%-3*1.5rem)/4)]
+                gap-6
+                overflow-x-auto
+                scroll-smooth
+                snap-x snap-mandatory
+                pb-2
+
+                [&::-webkit-scrollbar]:hidden
+                [-ms-overflow-style:none]
+                [scrollbar-width:none]
+        ">
+            <!-- Append image cards here -->
+        </main>
+    </div>
+</section>

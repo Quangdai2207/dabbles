@@ -1,0 +1,13 @@
+
+CREATE TABLE IF NOT EXISTS fees (
+    id VARCHAR(36) NOT NULL,
+    percent DECIMAL(19, 2) DEFAULT 0.00,
+    type VARCHAR(20) NOT NULL,
+
+    is_deleted BOOLEAN DEFAULT FALSE,
+    created_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_date DATETIME NULL ON UPDATE CURRENT_TIMESTAMP,
+
+    -- Khóa chính
+    PRIMARY KEY (id)
+);

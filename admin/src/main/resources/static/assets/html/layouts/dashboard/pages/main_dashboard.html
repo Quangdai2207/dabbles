@@ -1,0 +1,120 @@
+<div id="dashboard-main">
+
+    <!-- HEADER -->
+    <div class="flex items-center justify-between mb-10">
+        <h2 class="text-3xl font-bold">System Overview</h2>
+        <div class="text-gray-400 text-sm">Data synced from database schema</div>
+    </div>
+
+    <!-- TOP METRICS FROM ERD -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+
+        <!-- USERS -->
+        <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl">
+            <p class="text-gray-400 text-sm mb-1">Total Users</p>
+            <h3 id="dashboard-user-total" class="text-3xl font-bold">00</h3>
+            <p class="text-xs text-gray-500">users table</p>
+        </div>
+
+        <!-- IMAGES -->
+        <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl">
+            <p class="text-gray-400 text-sm mb-1">Total Images</p>
+            <h3 id="dashboard-image-total" class="text-3xl font-bold">00</h3>
+            <p class="text-xs text-gray-500">images table</p>
+        </div>
+
+        <!-- SUBSCRIPTIONS -->
+        <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl">
+            <p class="text-gray-400 text-sm mb-1">Active Subscriptions</p>
+            <h3 class="text-3xl font-bold text-green-400">12,844</h3>
+            <p class="text-xs text-gray-500">user_subscriptions · subscription_plans</p>
+        </div>
+
+        <!-- PAYMENTS -->
+        <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl">
+            <p class="text-gray-400 text-sm mb-1">Total Payments</p>
+            <h3 id="dashboard-payment-total" class="text-3xl font-bold text-yellow-400">00</h3>
+            <p class="text-xs text-gray-500">payments table</p>
+        </div>
+    </div>
+
+    <!-- SECONDARY TABLES OVERVIEW -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+
+        <!-- CATEGORIES -->
+        <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl">
+            <p class="text-gray-400 text-sm mb-1">Categories</p>
+            <h3 id="dashboard-cate-total" class="text-2xl font-semibold">00</h3>
+            <p class="text-xs text-gray-500">categories table</p>
+        </div>
+
+        <!-- COMMENTS -->
+        <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl">
+            <p class="text-gray-400 text-sm mb-1">Comments</p>
+            <h3 class="text-2xl font-semibold">443,231</h3>
+            <p class="text-xs text-gray-500">comments table</p>
+        </div>
+
+        <!-- BOARDS -->
+        <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl">
+            <p class="text-gray-400 text-sm mb-1">Boards</p>
+            <h3 class="text-2xl font-semibold">92,113</h3>
+            <p class="text-xs text-gray-500">boards table</p>
+        </div>
+
+    </div>
+
+    <!-- SYSTEM GRAPHS (PLACEHOLDERS) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+
+        <div class="bg-gray-900 border border-gray-800 p-6 rounded-xl h-72">
+            <h4 class="font-semibold mb-4">New Users (users)</h4>
+            <div class="h-full flex items-center justify-center text-gray-500">Chart here</div>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 p-6 rounded-xl h-72">
+            <h4 class="font-semibold mb-4">Image Uploads (images)</h4>
+            <div class="h-full flex items-center justify-center text-gray-500">Chart here</div>
+        </div>
+
+    </div>
+
+    <!-- LOWER DATABASE TABLES -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- REPORT PREVIEW -->
+        <div class="bg-gray-900 border border-gray-800 p-6 rounded-xl">
+            <h4 class="font-semibold mb-4">Recent Reports</h4>
+            <ul class="text-sm text-gray-400 space-y-3">
+                <li>Report #10233 — image 4323 — nudity</li>
+                <li>Report #10212 — comment 1221 — harassment</li>
+                <li>Report #10211 — user 884 — spam</li>
+            </ul>
+            <p class="text-xs text-gray-600 mt-4">reports table</p>
+        </div>
+
+        <!-- CONVERSATIONS -->
+        <div class="bg-gray-900 border border-gray-800 p-6 rounded-xl">
+            <h4 class="font-semibold mb-4">Recent Conversations</h4>
+            <ul class="text-sm text-gray-400 space-y-3">
+                <li>u124 & u884 — 3 messages</li>
+                <li>u882 & u443 — 7 messages</li>
+                <li>u112 & u113 — 1 message</li>
+            </ul>
+            <p class="text-xs text-gray-600 mt-4">conversations table</p>
+        </div>
+
+        <!-- CONTACTS -->
+        <div class="bg-gray-900 border border-gray-800 p-6 rounded-xl">
+            <h4 class="font-semibold mb-4">User Contacts</h4>
+            <ul class="text-sm text-gray-400 space-y-3">
+                <li>u331 → 112 follows</li>
+                <li>u553 → 93 follows</li>
+                <li>u882 → 77 follows</li>
+            </ul>
+            <p class="text-xs text-gray-600 mt-4">contacts table</p>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,109 @@
+<div id="section-user-details" class="pl-4 pb-2 pr-4 h-[calc(100vh-0px)] flex flex-col gap-6">
+
+    <!-- ===================== HEADER ===================== -->
+    <header
+            class="sticky top-0 z-20
+            flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6
+           bg-gray-900 border border-gray-800 rounded-2xl p-6">
+
+        <!-- LEFT -->
+        <div class="flex items-center gap-6">
+
+            <!-- AVATAR -->
+            <div class="relative group">
+                <img
+                        id="user-details-avatar"
+                        src=""
+                        alt="avatar"
+                        onerror="this.src='https://placehold.co/160'"
+                        class="w-20 h-20 rounded-2xl border border-gray-700 object-cover">
+
+                <input
+                        type="file"
+                        id="user-details-avatar-input"
+                        accept="image/*"
+                        class="hidden">
+
+                <button
+                        id="user-details-avatar-update"
+                        type="button"
+                        onclick="$('#user-details-avatar-input').click()"
+                        class="absolute inset-0 rounded-2xl bg-black/60 text-white text-xs
+                           flex items-center justify-center
+                           opacity-0 group-hover:opacity-100 transition">
+                    Change
+                </button>
+            </div>
+
+            <!-- INFO -->
+            <div class="space-y-1">
+                <h2 class="text-xl font-semibold text-white">
+                    <span id="user-details-firstName"></span>
+                    <span id="user-details-lastName"></span>
+                </h2>
+
+                <p id="user-details-email" class="text-sm text-gray-400"></p>
+                <div id="user-details-online-status"></div>
+            </div>
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+
+            <!-- TABS -->
+            <div class="inline-flex rounded-xl border border-gray-700 bg-gray-800 p-1">
+                <a data-link-user
+                   id="user-details-btn-info"
+                   class="px-4 py-2 rounded-lg text-sm font-medium
+                  text-white bg-gray-700">
+                    Info
+                </a>
+
+                <a data-link-user
+                   id="user-details-btn-images"
+                   class="px-4 py-2 rounded-lg text-sm font-medium
+                  text-gray-400 hover:text-white hover:bg-gray-700">
+                    Images
+                </a>
+
+                <a data-link-user
+                   id="user-details-btn-payments"
+                   class="px-4 py-2 rounded-lg text-sm font-medium
+                  text-gray-400 hover:text-white hover:bg-gray-700">
+                    Payments
+                </a>
+
+                <a data-link-user
+                   id="user-details-btn-transaction"
+                   class="px-4 py-2 rounded-lg text-sm font-medium
+                  text-gray-400 hover:text-white hover:bg-gray-700">
+                    Wallet Transactions
+                </a>
+
+                <a data-link-user
+                   id="user-details-btn-subs"
+                   class="px-4 py-2 rounded-lg text-sm font-medium
+                  text-gray-400 hover:text-white hover:bg-gray-700">
+                    Subs
+                </a>
+            </div>
+
+            <!-- BACK -->
+            <a href="/admin/users"
+               data-link
+               class="inline-flex items-center gap-2
+              px-4 py-2 rounded-lg
+              bg-gray-900 border border-gray-700
+              text-sm text-orange-400 hover:bg-gray-800">
+                ← Back
+            </a>
+        </div>
+    </header>
+    <main class="flex-1 overflow-y-auto space-y-10 pr-2
+            [&::-webkit-scrollbar]:hidden
+            [-ms-overflow-style:none]
+            [scrollbar-width:none]"
+            id="user-details-main-layout">
+        <!-- Append content-->
+    </main>
+</div>

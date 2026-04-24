@@ -1,0 +1,21 @@
+DOM ROUTERS MODULE
+
+In the `routers` directory, this is where DOM routes are registered for the corresponding UI
+when querying or navigating.
+
+There are 3 DOM Routers corresponding to specific ROLES:
+
+1. auth
+   DOM routers used to render UI for account authentication.
+
+2. super_admin
+   DOM routers for UI with the **super-admin** role, serving tasks for managing the entire application system on the website.
+
+3. admin
+   DOM routers that render UI for the **admin** role, along with tasks for a lower-level administrator.
+
+---
+
+When new UIs are created for the corresponding ROLES, the DOM router can be registered in the `routers` directory.
+
+END.

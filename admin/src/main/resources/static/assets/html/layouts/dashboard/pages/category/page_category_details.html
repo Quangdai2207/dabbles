@@ -1,0 +1,230 @@
+<section id="category-detail-page" class="space-y-8">
+
+    <!-- ===== HEADER ===== -->
+    <header class="bg-gray-900 border border-gray-800 rounded-2xl p-6 shadow">
+
+        <div class="flex flex-wrap justify-between gap-6">
+
+            <!-- LEFT -->
+            <div class="space-y-2">
+                <h2 id="category-detail-name" class="text-xl font-semibold text-white"></h2>
+
+                <p class="text-sm text-gray-400">
+                    <span class="text-gray-500 italic">/category/details/</span>
+                    <span id="category-detail-slug"></span>
+                </p>
+
+                <div class="flex gap-2 mt-2">
+          <span id="category-detail-featured-badge"
+                class="hidden px-2 py-[2px] text-[11px] border border-green-300 rounded bg-green-400 text-green-800">
+            Featured
+          </span>
+                </div>
+            </div>
+
+            <!-- ACTIONS -->
+            <div class="flex items-center gap-3">
+
+                <button id="category-preview-images"
+                        class="px-4 py-2 rounded-xl bg-lime-500 hover:bg-lime-600 border border-lime-800
+                       text-green-900 font-bold text-sm cursor-pointer">
+                    Preview Images
+                </button>
+
+                <button id="btn-edit-category"
+                        class="px-4 py-2 rounded-xl bg-blue-800 hover:bg-blue-700 text-sm">
+                    Edit
+                </button>
+
+                <a href="/admin/categories" data-link
+                   class="px-4 py-2 rounded-xl bg-gray-800 hover:bg-gray-700 border border-gray-700 text-sm">
+                    Back
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- ===== TOP INFO GRID ===== -->
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+        <!-- DESCRIPTION -->
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4">
+            <p class="text-xs text-gray-400">Description</p>
+            <p id="category-detail-description"
+               class="text-sm text-gray-200 leading-relaxed"></p>
+        </div>
+
+        <!-- META -->
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4">
+            <div>
+                <p class="text-xs text-gray-400">Created</p>
+                <p id="category-detail-created" class="text-sm text-white"></p>
+            </div>
+
+            <div>
+                <p class="text-xs text-gray-400">Updated</p>
+                <p id="category-detail-updated" class="text-sm text-white"></p>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 grid grid-cols-2 gap-4 text-center">
+
+            <div class="bg-gray-800 rounded-xl p-3">
+                <p class="text-xs text-gray-400">Total Images</p>
+                <p id="category-images-total" class="text-lg font-semibold text-white"></p>
+            </div>
+
+            <div class="bg-gray-800 rounded-xl p-3">
+                <p class="text-xs text-gray-400">Total Likes</p>
+                <p id="category-stat-likes" class="text-lg font-semibold text-pink-400">0</p>
+            </div>
+
+            <div class="bg-gray-800 rounded-xl p-3">
+                <p class="text-xs text-gray-400">Public</p>
+                <p id="category-stat-public" class="text-lg font-semibold text-green-400">0</p>
+            </div>
+
+            <div class="bg-gray-800 rounded-xl p-3">
+                <p class="text-xs text-gray-400">Private</p>
+                <p id="category-stat-private" class="text-lg font-semibold text-gray-400">0</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ===== MODERATION QUEUE ===== -->
+    <section class="space-y-4">
+
+        <div class="flex items-center justify-between">
+            <h3 class="text-sm font-semibold text-white">Moderation Queue</h3>
+
+            <span class="text-xs px-2 py-[2px] rounded bg-amber-900/40 text-amber-300 border border-amber-800">
+        Pending review
+      </span>
+        </div>
+
+        <header class="flex gap-3 flex-wrap">
+
+            <select id="moderation-filter"
+                    class="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-white">
+                <option value="">All</option>
+                <option value="reported">Reported</option>
+                <option value="pending">Pending Publish</option>
+                <option value="flagged">Flagged</option>
+            </select>
+
+            <input id="moderation-search"
+                   type="text"
+                   placeholder="Search…"
+                   class="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-white w-64">
+        </header>
+
+        <main id="category-moderation-list"
+              class="grid gap-5 grid-cols-[repeat(auto-fit,minmax(220px,1fr))]">
+            <!-- append moderation cards -->
+        </main>
+
+        <div id="category-moderation-empty"
+             class="hidden text-gray-500 text-center py-8 italic">
+            No items waiting for review 🎉
+        </div>
+
+    </section>
+
+
+
+    <!-- ===== CATEGORY HEALTH ===== -->
+    <section class="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-5">
+
+        <div class="flex items-center justify-between">
+            <p class="text-sm font-semibold text-white">Category Health</p>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+
+            <div class="bg-gray-800 rounded-xl p-3 text-center">
+                <p class="text-xs text-gray-400">Reported Images</p>
+                <p id="cat-health-reports" class="text-lg font-semibold text-amber-300">0</p>
+            </div>
+
+            <div class="bg-gray-800 rounded-xl p-3 text-center">
+                <p class="text-xs text-gray-400">Pending Review</p>
+                <p id="cat-health-pending" class="text-lg font-semibold text-blue-300">0</p>
+            </div>
+
+            <div class="bg-gray-800 rounded-xl p-3 text-center">
+                <p class="text-xs text-gray-400">Locked</p>
+                <p id="cat-health-locked" class="text-lg font-semibold text-gray-300">No</p>
+            </div>
+
+            <div class="bg-gray-800 rounded-xl p-3 text-center">
+                <p class="text-xs text-gray-400">Spam Risk</p>
+                <p id="cat-health-risk" class="text-lg font-semibold text-pink-300">Low</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ===== SEO PANEL ===== -->
+    <section class="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4">
+
+        <p class="text-sm font-semibold text-white">SEO & Discoverability</p>
+
+        <div class="grid grid-cols-2 gap-4 text-sm">
+
+            <div>
+                <p class="text-xs text-gray-400">Slug</p>
+                <p id="seo-slug" class="text-gray-200"></p>
+            </div>
+
+            <div>
+                <p class="text-xs text-gray-400">Indexed</p>
+                <p id="seo-index" class="text-green-300">Yes</p>
+            </div>
+
+            <div class="col-span-2">
+                <p class="text-xs text-gray-400">Keywords</p>
+                <p id="seo-keywords" class="text-gray-300 text-xs"></p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ===== PERMISSION / OWNERSHIP ===== -->
+    <section class="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-3">
+
+        <p class="text-sm font-semibold text-white">Access Control</p>
+
+        <div class="text-sm text-gray-300">
+            <p>Owner: <span id="cat-owner" class="font-medium"></span></p>
+
+            <p class="mt-2">Maintainers:</p>
+            <ul id="cat-maintainers" class="list-disc ml-5 text-gray-400 text-xs">
+                <!-- li -->
+            </ul>
+        </div>
+
+        <div class="flex gap-2 pt-2">
+
+            <button class="px-3 py-1 rounded-lg bg-gray-800 hover:bg-gray-700 border border-gray-700 text-sm">
+                Add Maintainer
+            </button>
+
+            <button class="px-3 py-1 rounded-lg bg-red-800/70 hover:bg-red-700 border border-red-900 text-sm">
+                Lock Category
+            </button>
+
+        </div>
+
+    </section>
+
+</section>
