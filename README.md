@@ -1,16 +1,29 @@
 ![image](./uploads/avatars/image-1.png)
-# Demo App By Docker
+# Demo Admin Server By Docker
 -----
 
 - **Step 1:** `cd ./dabble-project` where is stores the whole source code and docker-compose.yml file
-- **Step 2:** Use Command to run app `docker compose up -d`.
+- **Step 2:** Use the Command to run app `docker compose up -d`.
 - **Step 3:** Observe the `migration` containers log if error occurred, re-command `docker compose up -d`
 - **Step 4:** After rerun successfully, access the `PORT 8668` with Admin UI Or `PORT 3366` test `Swagger UI`
 - **Step 5:** login with `superadmin@app.com`, password `123` for test Login.
 - **Step 6:** `docker compose down -v` to stop all containers
 
+**Example:**
+
+````bash
+cd ./dabble-project
+docker compose up -d 
+````
+
+Stop all containers is running
+
+````bash
+docker compose down -v
+````
+
 The current core-api server still dose not configuration for open scalable, so we can do just one the instance without
-`--scale`. And the other, the process core-Api server maybe a little long so you can waits a few minutes (1m) for the 
+`--scale`. And the other, the process core-Api server maybe a little long so you can waits a few minutes (1m) for the
 process is done, this issue will be early resolve.
 
 -----
@@ -27,13 +40,24 @@ services:
 5. [app-test](./apps-test)
 6. [mobile](./mobile)
 
+## WorkFlows
+
+```text
+[Web Client - Next.js :3000] ----->
+                                    \                                   ---> Redis
+[Mobile App - Flutter] ----------->   [API Server - Spring Boot :3366]  ---> MySQL
+                                    /                                   ---> Cassandra
+[Admin - Spring Boot :8668] ------                                      
+```
+
 ***
 
 ## Framework and Languages
 
-- Java, Spring Java
+- Java, Spring Framework
 - NextJS, Javascript
 - Redis, MySql, Cassandra
+- Dark, Flutter
 
 ## [Admin](./admin)
 
@@ -92,20 +116,56 @@ The application is organized into two separate parts, in which:
 
 Was build by NextJs to render data for the end users.
 
+````text
+    - Next.js 16.1.6 (App Router)
+    - React 19.2.4
+    - TypeScript strict
+    - Tailwind CSS 4 + Radix UI
+    - State/data: Zustand, SWR
+    - Auth/login: Google OAuth, JWT
+    - Realtime: STOMP/SockJS
+````
+
+Port Default:
+
+- `3000`
+
 ## [Server](./server)
 
 The Core Apis server provide for Client and Admin server. It's written by Spring Boot Java. The Server was used several
 technology like OAuth Authentication, Jwt, redis to store token session and cassandra non-relation DB for the message
 realtime features.
 
+````text
+    - Java 17
+    - Spring Boot `3.5.6`
+    - Spring Web, Security, Data JPA, WebSocket
+    - MySQL connector
+    - Cassandra integration
+    - Redis integration
+    - Swagger UI (configured path `/`)
+    - Extra integrations: PayPal SDK, Google API client, mail SMTP, images handler, upload
+````
+
+Port Default:
+
+- `3366`
+
 ## [App Migration](./app-migrations)
 
-Seeding data for application
+Used single maven consist Flyway to seeding data instead Spring boot.
 
 ## [Test App](./apps-test)
 
-Test for feature realtime
+Test features realtime.
 
 ## [Mobile](./mobile)
 
-Mobile App written by Flutter
+````text
+    - Dart SDK ^3.10.4
+    - Flutter + Riverpod
+    - Dio cho networking
+    - flutter_secure_storage
+    - websocket client (`stomp_dart_client`)
+    - dotenv config qua file .env
+````
