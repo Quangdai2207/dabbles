@@ -1,3 +1,14 @@
+# Demo App By Docker
+-----
+- **Step 1:** git clone `git@github.com:Quangdai2207/dabbles.git`
+- **Step 2:** `cd ./dabble-project` where is stores the whole source code
+- **Step 3:** Use Command to run app `docker compose up -d`. 
+- **Step 4:** Observe the `migration` containers log if error occurred, re-command `docker compose up -d` 
+- **Step 5:** After rerun successfully, access the `PORT 8668` with Admin UI Or `PORT 3366` test `Swagger UI`
+- **Step 6:** login with `superadmin@app.com`, password `123` for test Login.
+- **Step 7:** `docker compose down -v` to stop all containers
+-----
+
 # Documentation
 ***
 This project mini or share images, which was based-on microservices model but they're distributed monolithic with

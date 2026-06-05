@@ -14,7 +14,7 @@ public class BaseUrl {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://server")
+                .baseUrl("http://server:3366/")
                 .addConverterFactory(GsonConverterFactory.create(
                         new GsonBuilder().setDateFormat("dd/MM/yyyy").create()))
                 .client(client)

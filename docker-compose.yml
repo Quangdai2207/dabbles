@@ -1,55 +1,5 @@
 services:
 
-  ## SERVER
-  server:
-    image: core-dabble
-    ports:
-      - "3366:3366"
-    depends_on:
-      - db
-      - redis
-      - cassandra
-      - migration
-
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/${DB_NAME}
-      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
-      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
-
-      SPRING_DATA_REDIS_HOST: redis
-      SPRING_DATA_REDIS_PORT: 6379
-      SPRING_DATA_REDIS_PASSWORD: ${REDIS_PASSWORD}
-
-      SPRING_DATA_CASSANDRA_CONTACT_POINTS: cassandra
-      SPRING_DATA_CASSANDRA_PORT: 9042
-      SPRING_DATA_CASSANDRA_KEYSPACE_NAME: ${KEYSPACE}
-      SPRING_DATA_CASSANDRA_LOCAL_DATACENTER: datacenter1
-
-    networks:
-      - app-net
-
-  ## ADMIN SERVICE
-  admin:
-    image: daitran9999/admin:v1
-    ports:
-      - "8668:8668"
-    environment:
-      JWT_SecretKey: ${SECRETS}
-    depends_on:
-      - server
-    networks:
-      - app-net
-
-  ## SEEDING DATA
-  migration:
-    build: ./app-migrations
-    networks:
-      - app-net
-    ## waiting DB complete
-    depends_on:
-      db:
-        condition: service_healthy
-
   ## DATABASE
   db:
     image: mysql:8
@@ -64,12 +14,11 @@ services:
       - db-data:/var/lib/mysql
     networks:
       - app-net
-
     healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
-      interval: 5s
-      timeout: 5s
-      retries: 20
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -p$MYSQL_ROOT_PASSWORD"]
+      interval: 10s
+      timeout: 10s
+      retries: 40
 
   ## REDIS
   redis:
@@ -91,6 +40,73 @@ services:
     restart: always
     volumes:
       - cassandra-data:/var/lib/cassandra
+    networks:
+      - app-net
+
+
+  ## SEEDING DATA
+  migration:
+    image: daitran9999/migration-data:v1.0.0
+    networks:
+      - app-net
+    ## waiting DB complete
+    depends_on:
+      db:
+        condition: service_healthy
+
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "localhost" ]
+      interval: 10s
+      timeout: 10s
+      retries: 20
+
+
+  ## SERVER
+  server:
+    image: daitran9999/core-dabble:v1.0.0
+    ports:
+      - "3366:3366"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+      SPRING_DATA_REDIS_PASSWORD: ${REDIS_PASSWORD}
+
+      SPRING_DATA_CASSANDRA_CONTACT_POINTS: cassandra
+      SPRING_DATA_CASSANDRA_PORT: 9042
+      SPRING_DATA_CASSANDRA_KEYSPACE_NAME: ${KEYSPACE}
+      SPRING_DATA_CASSANDRA_LOCAL_DATACENTER: datacenter1
+
+    networks:
+      - app-net
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:3366/actuator/health" ]
+      interval: 10s
+      timeout: 10s
+      retries: 20
+
+    depends_on:
+      migration:
+        condition: service_started
+      redis:
+        condition: service_started
+      cassandra:
+        condition: service_started
+
+
+  ## ADMIN SERVICE
+  admin:
+    image: daitran9999/admin-server:v1.0.0
+    ports:
+      - "8668:8668"
+    environment:
+      JWT_SecretKey: ${SECRETS}
+    depends_on:
+      server:
+        condition: service_started
     networks:
       - app-net
 
