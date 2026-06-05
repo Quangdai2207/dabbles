@@ -40,6 +40,21 @@ services:
 5. [app-test](./apps-test)
 6. [mobile](./mobile)
 
+## Structure
+
+```text
+    dabble-project/
+    ├── admin/              # Spring Boot MVC + Thymeleaf (return root index.html), Javascript, css, html
+    ├── app-migrations/     # Java migration module seeding data
+    ├── apps-test/          # app test/prototype
+    ├── client/             # Next.js 16 + React 19 (end-user web)
+    ├── mobile/             # Flutter app
+    ├── server/             # Spring Boot API + WebSocket + data integrations
+    ├── uploads/            # Images upload local
+    ├── docker-compose.yml  # app test/prototype
+    └── README.md           # Documentation
+```
+
 ## WorkFlows
 
 ```text
