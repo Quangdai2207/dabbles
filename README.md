@@ -1,3 +1,12 @@
+# Demo App By Docker
+-----
+- **Step 1:** `cd ./dabble-project` where is stores the whole source code and docker-compose.yml file
+- **Step 2:** Use Command to run app `docker compose up -d`. 
+- **Step 3:** Observe the `migration` containers log if error occurred, re-command `docker compose up -d` 
+- **Step 4:** After rerun successfully, access the `PORT 8668` with Admin UI Or `PORT 3366` test `Swagger UI`
+- **Step 5:** login with `superadmin@app.com`, password `123` for test Login.
+- **Step 6:** `docker compose down -v` to stop all containers
+-----
 
 # Documentation
 ***
