@@ -8,6 +8,9 @@
 - **Step 5:** login with `superadmin@app.com`, password `123` for test Login.
 - **Step 6:** `docker compose down -v` to stop all containers
 
+The current core-api server still dose not configuration for open scalable, so we can do just one the instance without
+`--scale`.
+
 -----
 
 # Documentation
