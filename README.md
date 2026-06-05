@@ -44,7 +44,7 @@ services:
 
 ```text
     dabble-project/
-    ├── admin/              # Spring Boot MVC + Thymeleaf (return root index.html), Javascript, css, html
+    ├── admin/              # Spring Boot BFF [Thymeleaf (return root index.html), Javascript, css, html]
     ├── app-migrations/     # Java migration module seeding data
     ├── apps-test/          # app test/prototype
     ├── client/             # Next.js 16 + React 19 (end-user web)
@@ -58,11 +58,11 @@ services:
 ## WorkFlows
 
 ```text
-[Web Client - Next.js :3000] ----->
-                                    \                                   ---> Redis
-[Mobile App - Flutter] ----------->   [API Server - Spring Boot :3366]  ---> MySQL
-                                    /                                   ---> Cassandra
-[Admin - Spring Boot :8668] ------                                      
+[ Web Client - Next.js :3000]   ------
+                                       \                                     ---> Redis
+[ Mobile App - Flutter]         --------- =>  [CoreApi - Spring Boot :3366]  ---> MySQL
+                                       /                                     ---> Cassandra
+[ Web Admin - BFF :8668]        ------                                      
 ```
 
 ***
