@@ -44,15 +44,15 @@ services:
 
 ```text
     dabble-project/
-    ├── admin/              # Spring Boot BFF [Thymeleaf (return root index.html), Javascript, css, html]
-    ├── app-migrations/     # Java migration module seeding data
-    ├── apps-test/          # app test/prototype
-    ├── client/             # Next.js 16 + React 19 (end-user web)
-    ├── mobile/             # Flutter app
-    ├── server/             # Spring Boot API + WebSocket + data integrations
-    ├── uploads/            # Images upload local
-    ├── docker-compose.yml  # app test/prototype
-    └── README.md           # Documentation
+        ├── admin/              # Spring Boot BFF [Thymeleaf (return root index.html), Javascript, css, html]
+        ├── app-migrations/     # Java migration module seeding data
+        ├── apps-test/          # app test/prototype
+        ├── client/             # Next.js 16 + React 19 (end-user web)
+        ├── mobile/             # Flutter app
+        ├── server/             # Spring Boot API + WebSocket + data integrations
+        ├── uploads/            # Images upload local
+        ├── docker-compose.yml  # Run services container
+        └── README.md           # Documentation
 ```
 
 ## WorkFlows
@@ -60,12 +60,10 @@ services:
 ```text
 [ Web Client - Next.js :3000]   ------
                                        \                                     ---> Redis
-[ Mobile App - Flutter]         --------- =>  [CoreApi - Spring Boot :3366]  ---> MySQL
+[ Mobile App - Flutter]         -------- =>  [CoreApi - Spring Boot :3366]   ---> MySQL
                                        /                                     ---> Cassandra
 [ Web Admin - BFF :8668]        ------                                      
 ```
-
-***
 
 ## Framework and Languages
 
@@ -87,6 +85,7 @@ flow of a system.
 The application is organized into two separate parts, in which:
 
 1. ### [Back-end](./admin/src/main/java/ti/dabble)
+
 - `./java/dabble` was where stored source codes Java, which organize by backend business structure as the
   Modules, Layers, including:
     - [controllers](./admin/src/main/java/ti/dabble/controllers)
@@ -95,9 +94,8 @@ The application is organized into two separate parts, in which:
     - [models](./admin/src/main/java/ti/dabble/models)
     - [services](./admin/src/main/java/ti/dabble/services)
 
-***
-
 2. ### [Front-end](./admin/src/main/resources/static/assets)
+
 - Frontend stored into the Resources folder, which is contains the whole source codes and applications resource,
   in which:
     - [css](./admin/src/main/resources/static/assets/css)
@@ -121,11 +119,9 @@ The application is organized into two separate parts, in which:
     - [services](./admin/src/main/resources/static/assets/js/app/services)
 
 - `router.js` file use for to handles RouterDom with dynamic params and none
- - `routers` folder, where is use for declares routerDom to render UI corresponding and also by ROLE
- - `pathsPage` is also contain the static html file paths. When you created new html at the **html** folder, you
-    most always declare in this place.
-
-***
+- `routers` folder, where is use for declares routerDom to render UI corresponding and also by ROLE
+- `pathsPage` is also contain the static html file paths. When you created new html at the **html** folder, you
+  most always declare in this place.
 
 ## [Client](./client)
 
