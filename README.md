@@ -15,7 +15,6 @@ The current core-api server still dose not configuration for open scalable, so w
 
 # Documentation
 
-***
 This project mini or share images, which was based-on microservices model but they're distributed monolithic with
 services:
 
@@ -45,8 +44,6 @@ technology today. This approach provides a better understanding of modern fronte
 flow of a system.
 
 The application is organized into two separate parts, in which:
-
-***
 
 1. ### [Back-end](./admin/src/main/java/ti/dabble)
     - `./java/dabble` was where stored source codes Java, which organize by backend business structure as the
