@@ -21,6 +21,7 @@ export default function LOGIN(path, mainContent) {
             window.onTurnstileVerify = function (token) {
                 if (!token) location.reload();
                 captchaToken = token;
+                console.log(token);
             }
 
             window.onTurnstileExpire = window.onTurnstileError = function () {

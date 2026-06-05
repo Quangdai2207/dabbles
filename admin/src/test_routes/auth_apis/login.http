@@ -3,12 +3,11 @@
 POST http://localhost:3366/api/auth/login
 Accept: application/json
 Content-Type: application/json
-X-Captcha-Token: your-captcha-token-here
-X-Remember-Token: true
+X-Captcha-Token: 1.vQd6Jla08xy01ljUGFuOEWEe13RG5OmmlxGUUORYGTJXHZ7rv5zfScfgn01bsb59Qx1_x1JhJdcM17-AWVNoPVPleM7eMXe7N4PEyTUQutra3dpIEPCOBcDnKK1bduNoxCc_w01SuTm5D1xteNU5zqytldtl3N7os5utlrXdfKtS_xurWPxpdCA05mCj4y0skLBM_b0o9vRmjUL80obWVChA4mlE5mRB9M4prPV0PesuXs0v2q8r0QF9Ued646cmrkJtsox-i1Yrqvf2W9cCIM_YkAvvHuzJl7TgwYP8O_-IfU3IUSwWIZ5o0Wl87Nh4TfOE2hO-gkcLRNcJBBWcvAOkfr2V4kcPHBkWM_iDfxwyLOikh8PW1yScnHTXzZCGNfe88CEJ3MLR-nmRAKwyHoY8ab_wUzEnD4k9ukkr9IUzKtoQPD4BdM9FGX-BZRmChRvMVNe03v1adIu9CPwmHjL__o1LnpjiJhH27adYRzpsnLFtUatIUyX91Eoc-aeOAQq51enYhu1J1ZtJtEDhqim9O_NAPVeJfgI1_sX42kDngW8kqQU21gzjUk04vPcphNqC416TeyvdE2ZOHd7KUpoIkJQS41bP54d_L2sBcPPrS2oRkx0KV1FM1VxYrHbp4iT4M3JC_7TCOGUOZ0tiydrELwRCUXbJoedXgDBPgCey8WmQk-VWoAMaF7pxrOAs.ysJRjaSDdODv9JSS8KTRmw.b4476afc527c13da17c7eb4ca8940dd17a1363835a39a16f8cded3c10f7a285f
 
 {
-  "username": "admin",
-  "password": "123456"
+  "email": "superadmin@app.com",
+  "password": "123"
 }
 
 

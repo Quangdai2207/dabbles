@@ -1,0 +1,24 @@
+# ===== GIT =====
+.git
+.gitignore
+
+# ===== ENV =====
+.env
+
+# ===== Node =====
+**/node_modules
+**/.next
+**/out
+
+# ===== Java =====
+**/target
+**/*.jar
+**/*.log
+
+# ===== IDE =====
+**/.idea
+**/.vscode
+
+# ===== OS =====
+**/.DS_Store
+**/Thumbs.db

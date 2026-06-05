@@ -33,6 +33,7 @@ public class AuthService implements IAuthService {
                 response.put("errorMessage", "Response body is empty");
             }
         } catch (Exception ex) {
+            System.out.println(ex.getMessage());
             System.out.print("Exception Service: " + ex);
             response.put("isSuccess", false);
             response.put("errorMessage", ex.getMessage());

@@ -1,0 +1,106 @@
+services:
+
+  ## SERVER
+  server:
+    image: core-dabble
+    ports:
+      - "3366:3366"
+    depends_on:
+      - db
+      - redis
+      - cassandra
+      - migration
+
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+      SPRING_DATA_REDIS_PASSWORD: ${REDIS_PASSWORD}
+
+      SPRING_DATA_CASSANDRA_CONTACT_POINTS: cassandra
+      SPRING_DATA_CASSANDRA_PORT: 9042
+      SPRING_DATA_CASSANDRA_KEYSPACE_NAME: ${KEYSPACE}
+      SPRING_DATA_CASSANDRA_LOCAL_DATACENTER: datacenter1
+
+    networks:
+      - app-net
+
+  ## ADMIN SERVICE
+  admin:
+    image: daitran9999/admin:v1
+    ports:
+      - "8668:8668"
+    environment:
+      JWT_SecretKey: ${SECRETS}
+    depends_on:
+      - server
+    networks:
+      - app-net
+
+  ## SEEDING DATA
+  migration:
+    build: ./app-migrations
+    networks:
+      - app-net
+    ## waiting DB complete
+    depends_on:
+      db:
+        condition: service_healthy
+
+  ## DATABASE
+  db:
+    image: mysql:8
+    container_name: db
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - app-net
+
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  ## REDIS
+  redis:
+    image: redis:7
+    container_name: redis-cache
+    restart: always
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    ports:
+      - "6037:6379"
+    networks:
+      - app-net
+
+  # CASSANDRA
+  cassandra:
+    image: cassandra:4
+    container_name: cassandra-message
+    ports:
+      - "9042:9042"
+    restart: always
+    volumes:
+      - cassandra-data:/var/lib/cassandra
+    networks:
+      - app-net
+
+## Mount Volume Storage
+volumes:
+  db-data:
+  cassandra-data:
+
+## NETWORK
+networks:
+  app-net:
+    name: nat
+    external: true

@@ -1,38 +1,30 @@
 package org.appmigrations;
 
 import org.flywaydb.core.Flyway;
-import java.io.InputStream;
-import java.util.Properties;
-import java.util.logging.LogManager;
 
 public class Main {
     public static void main(String[] args) {
         try {
-            LogManager.getLogManager().reset();
 
-            Properties props = new Properties();
-            try (InputStream input = Main.class.getClassLoader().getResourceAsStream("flyway.properties")) {
-                if (input == null) {
-                    throw new RuntimeException("❌ flyway.properties NOT FOUND in resources!");
-                }
-                props.load(input);
-            }
+            String url = "jdbc:mysql://db:3306/dabble?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+            String user = "root";
+            String password = "12345";
 
             Flyway flyway = Flyway.configure()
-                    .configuration(props)
-                    // QUAN TRỌNG: Đảm bảo Flyway tìm thấy cả SQL và Java migrations
-                    // "classpath:db/migration" là nơi chứa file .sql và .java (sau khi compile)
+                    .dataSource(url, user, password)
                     .locations("classpath:db/migration")
                     .load();
 
-            flyway.clean();
+            System.out.println("🚀 Starting Flyway migration...");
 
-            var result = flyway.migrate();
+            flyway.migrate();
 
+            System.out.println("✅ Migration completed successfully!");
 
         } catch (Exception e) {
-            System.err.println("❌ Migration failed: " + e.getMessage());
+            System.err.println("❌ Migration failed:");
             e.printStackTrace();
+            System.exit(1);
         }
     }
 }
