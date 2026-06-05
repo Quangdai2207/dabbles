@@ -40,7 +40,7 @@ The application is organized into two separate parts, in which:
 ***
 
 - ### [Back-end](./admin/src/main/java/ti/dabble)
-    - **./java/dabble** was where stored source codes Java, which organize by backend business structure as the
+    - `./java/dabble` was where stored source codes Java, which organize by backend business structure as the
       Modules, Layers, including:
         - [controllers](./admin/src/main/java/ti/dabble/controllers)
         - [apis](./admin/src/main/java/ti/dabble/apis)
@@ -62,7 +62,7 @@ The application is organized into two separate parts, in which:
             - [utils](./admin/src/main/resources/static/assets/js/utils)
         - [index.html](./admin/src/main/resources/static/index.html)
 
-    - **app** where is the major business logic and stores the all files javascript for the SPA. Structure based-on
+    - `app` where is the major business logic and stores the all files javascript for the SPA. Structure based-on
       ReactJs.
       which can be render the static html at the **html** and dynamic html. This app's structure:
         - [baseUrl](./admin/src/main/resources/static/assets/js/app/baseUrl)
@@ -73,9 +73,9 @@ The application is organized into two separate parts, in which:
         - [routers](./admin/src/main/resources/static/assets/js/app/routers)
         - [services](./admin/src/main/resources/static/assets/js/app/services)
 
-    - **router.js** file use for to handles RouterDom with dynamic params and none
-    - **routers** folder, where is use for declares routerDom to render UI corresponding and also by ROLE
-    - **pathsPage** is also contain the static html file paths. When you created new html at the **html** folder, you
+    - `router.js` file use for to handles RouterDom with dynamic params and none
+    - `routers` folder, where is use for declares routerDom to render UI corresponding and also by ROLE
+    - `pathsPage` is also contain the static html file paths. When you created new html at the **html** folder, you
       most always declare in this place.
 
 ***
