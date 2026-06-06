@@ -15,14 +15,25 @@ cd ./dabble-project
 docker compose up -d 
 ````
 
+After Compose run all container, uses command to check list healthy service
+
+````bash
+docker compose ps
+docler compose ps | grep healthy
+docker ps -a | grep healthy
+docker container ls -a | grep healthy
+````
+
 Stop all containers is running
 
 ````bash
 docker compose down -v
 ````
 
+`.env.example` you can add your values and then remove `.example`.
+
 The current core-api server still dose not configuration for open scalable, so we can do just one the instance without
-`--scale`. 
+`--scale`.
 When the whole containers process is done you can move on the browse 3366 or 8668
 
 -----
