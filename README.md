@@ -4,10 +4,9 @@
 
 - **Step 1:** `cd ./dabble-project` where is stores the whole source code and docker-compose.yml file
 - **Step 2:** Use the Command to run app `docker compose up -d`.
-- **Step 3:** Observe the `migration` containers log if error occurred, re-command `docker compose up -d`
-- **Step 4:** After rerun successfully, access the `PORT 8668` with Admin UI Or `PORT 3366` test `Swagger UI`
-- **Step 5:** login with `superadmin@app.com`, password `123` for test Login.
-- **Step 6:** `docker compose down -v` to stop all containers
+- **Step 3:** After rerun successfully, access the `PORT 8668` with Admin UI Or `PORT 3366` test `Swagger UI`
+- **Step 4:** login with `superadmin@app.com`, password `123` for test Login.
+- **Step 5:** `docker compose down -v` to stop all containers
 
 **Example:**
 
@@ -23,9 +22,7 @@ docker compose down -v
 ````
 
 The current core-api server still dose not configuration for open scalable, so we can do just one the instance without
-`--scale`. And the other, the process core-Api server maybe a little long so you can waits a few minutes (1m) for the
-process is done, this issue will be early resolve.
-
+`--scale`. When the whole containers process is done you can move on the browse 3366 or 8668
 -----
 
 # Documentation

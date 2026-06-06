@@ -15,10 +15,10 @@ services:
     networks:
       - app-net
     healthcheck:
-      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -p$MYSQL_ROOT_PASSWORD"]
-      interval: 10s
+      test: ["CMD-SHELL", "mysql -uroot -p${DB_PASSWORD} -e 'SELECT 1'"]
+      interval: 5s
       timeout: 10s
-      retries: 40
+      retries: 20
 
   ## REDIS
   redis:
@@ -63,7 +63,7 @@ services:
 
   ## SERVER
   server:
-    image: daitran9999/core-dabble:v1.0.0
+    image: daitran9999/core-dabble:v1.1.0
     ports:
       - "3366:3366"
     environment:
@@ -80,17 +80,21 @@ services:
       SPRING_DATA_CASSANDRA_KEYSPACE_NAME: ${KEYSPACE}
       SPRING_DATA_CASSANDRA_LOCAL_DATACENTER: datacenter1
 
+      SPRING_MAIL_USERNAME: ${GMAIL_USERNAME}
+      SPRING_MAIL_PASSWORD: ${GMAIL_PASSWORD}
+
     networks:
       - app-net
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:3366/actuator/health" ]
       interval: 10s
-      timeout: 10s
-      retries: 20
+      timeout: 5s
+      retries: 5
+      start_period: 60s
 
     depends_on:
       migration:
-        condition: service_started
+        condition: service_completed_successfully
       redis:
         condition: service_started
       cassandra:
@@ -106,7 +110,7 @@ services:
       JWT_SecretKey: ${SECRETS}
     depends_on:
       server:
-        condition: service_started
+        condition: service_healthy
     networks:
       - app-net
 
@@ -120,3 +124,4 @@ networks:
   app-net:
     name: nat
     external: true
+

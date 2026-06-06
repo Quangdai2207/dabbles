@@ -85,6 +85,7 @@ public class SecurityConfig {
                                         "/v3/api-docs/**",
                                         "/swagger-ui/**",
                                         "/",
+                                        "/actuator/**", // Todo Check healthy service system and provide to Container check healthy response Dockerk Deamon
                                         "/ws/**")
                                 .permitAll()
                                 .requestMatchers("/api/wallet-transaction/**")
