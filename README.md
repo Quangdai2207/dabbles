@@ -22,7 +22,9 @@ docker compose down -v
 ````
 
 The current core-api server still dose not configuration for open scalable, so we can do just one the instance without
-`--scale`. When the whole containers process is done you can move on the browse 3366 or 8668
+`--scale`. 
+When the whole containers process is done you can move on the browse 3366 or 8668
+
 -----
 
 # Documentation
