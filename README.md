@@ -15,7 +15,7 @@ cd ./dabble-project
 docker compose up -d 
 ````
 
-After Compose run all container, uses command to check list healthy service
+After Compose run all containers, uses command to check list healthy service
 
 ````bash
 docker compose ps
