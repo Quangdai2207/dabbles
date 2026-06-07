@@ -13,6 +13,9 @@
 ````bash
 cd ./dabble-project
 docker compose up -d 
+
+# for build
+docker compose up -d --build
 ````
 
 Once the Compose run all containers, used one in the commands to check list healthy service
@@ -24,10 +27,14 @@ docker ps -a | grep healthy
 docker container ls -a | grep healthy
 ````
 
-Stop all containers is running
+Stop all and remove containers is running
 
 ````bash
 docker compose down -v
+# Or use command:
+docker rm -f $(docker ps -aq)
+# Or remove images
+docker rmi -f $(docker images -aq)
 ````
 
 `.env.example` you can add your values and then remove `.example`.
