@@ -1,5 +1,5 @@
 ![image](./uploads/avatars/image-1.png)
-# Demo Admin Server By Docker
+# Launches Admin By Docker
 -----
 
 - **Step 1:** `cd ./dabble-project` where is stores the whole source code and docker-compose.yml file
