@@ -53,12 +53,12 @@ services:
     depends_on:
       db:
         condition: service_healthy
-
+    restart: on-failure
     healthcheck:
       test: [ "CMD", "curl", "-f", "localhost" ]
-      interval: 10s
-      timeout: 10s
-      retries: 20
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
 
   ## SERVER
@@ -82,6 +82,9 @@ services:
 
       SPRING_MAIL_USERNAME: ${GMAIL_USERNAME}
       SPRING_MAIL_PASSWORD: ${GMAIL_PASSWORD}
+
+    # If container exit unexpectedly, Docker will restart
+    restart: on-failure
 
     networks:
       - app-net
