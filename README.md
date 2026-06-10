@@ -37,6 +37,11 @@ docker rm -f $(docker ps -aq)
 docker rmi -f $(docker images -aq)
 ````
 
+If you want to monitoring the metrics Docker Engine and each service specification, we can moving pint browse:
+> http;//localhost:3000
+
+This's the Grafana Dashboard UI as we can monitoring the whole system distributed works through over time.
+
 `.env.example` you can add your values and then remove `.example`.
 
 The current core-api server still dose not configuration for open scalable, so we can do just one the instance without

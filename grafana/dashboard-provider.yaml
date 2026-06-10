@@ -7,5 +7,6 @@ providers:
   type: file
   disableDeletion: true
   updateIntervalSeconds: 0
+  # Chi dinh Grafana render UI Dashboard da duoc tao
   options:
     path: /var/lib/grafana/dashboards
