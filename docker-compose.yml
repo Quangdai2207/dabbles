@@ -63,7 +63,7 @@ services:
 
   ## SERVER
   server:
-    image: daitran9999/core-dabble:v1.1.0
+    image: daitran9999/core-dabble:v1.1.1
     ports:
       - "3366:3366"
     environment:
@@ -93,7 +93,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-      start_period: 60s
+      start_period: 90s
 
     depends_on:
       migration:
@@ -106,7 +106,7 @@ services:
 
   ## ADMIN SERVICE
   admin:
-    image: daitran9999/admin-server:v1.0.0
+    image: daitran9999/admin-server:v1.1.0
     ports:
       - "8668:8668"
     environment:
@@ -116,6 +116,30 @@ services:
         condition: service_healthy
     networks:
       - app-net
+
+  # Add Prometheus
+  prometheus:
+    image: daitran9999/prometheus:v1.1.0
+    ports:
+      - "9090:9090"
+    environment:
+      DOCKER_HOST: ${HOST_IP}
+    networks:
+      - app-net
+
+  # Add Grafana Dashboard
+  grafana:
+    image: daitran9999/grafana:v1.1.0
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_USERS_DEFAULT_THEME=light
+      - GF_AUTH_DISABLE_LOGIN_FORM=false
+      - GF_AUTH_ANONYMOUS_ENABLED=false
+    networks:
+      - app-net
+    depends_on:
+      - prometheus
 
 ## Mount Volume Storage
 volumes:

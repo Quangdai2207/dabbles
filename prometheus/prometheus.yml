@@ -1,0 +1,30 @@
+##  job-name: service-name              => Job name, this show on the UI Prometheus.
+##  metrics_path: metrics-endpoint      => This services endpoint metrics, this metrics must be declares config
+##  static_config:                      => With attribute "targets: [service-name]", service-name registry into docker-compose.yml
+##                                         LIke the examples was service-name.
+## dns_sd_config:                       => Uses for the service scale and Prometheus auto taking service DNS from Docker.
+##                                         Attribute "names : service-name", service-name was registry into docker-compose.yml.
+## ---------------------------------------------------------------------------------------------------------------------
+
+global:
+  scrape_interval: 5s
+
+# Static Config if service without scale
+scrape_configs:
+  - job_name: "admin-server"
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets: ["admin:8668"]
+
+# Dynamic config when server scale, Prometheus ask the DNS from Docker
+  - job_name: "server-server"
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets: ["server:3366"]
+
+  # Taking the Docker Engine metrics. But to take this, must be registry info into deamon.config or into Docker Desktop settings
+  - job_name: "docker"
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["DOCKER_HOST:9323"]
+
