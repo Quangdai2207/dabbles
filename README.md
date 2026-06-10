@@ -38,7 +38,7 @@ docker rmi -f $(docker images -aq)
 ````
 
 If you want to monitoring the metrics Docker Engine and each service specification, we can moving pint browse:
-> http;//localhost:3000
+> http://localhost:3000
 
 This's the Grafana Dashboard UI as we can monitoring the whole system distributed works through over time. Which is let
 you monitoring the metrics Docker Engine with HOST_IP within .env file. So, you can addition your host IP, but you
