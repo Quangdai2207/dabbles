@@ -37,7 +37,8 @@ docker rm -f $(docker ps -aq)
 docker rmi -f $(docker images -aq)
 ````
 
-If you want to monitoring the metrics Docker Engine and each service specification, we can moving pint browse:
+Once Compose up is done and services already, if you want to monitoring the metrics Docker Engine and each service
+specification, we can moving point browse:
 > http://localhost:3000
 
 This's the Grafana Dashboard UI as we can monitoring the whole system distributed works through over time. Which is let
