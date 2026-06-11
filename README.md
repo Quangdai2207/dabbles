@@ -10,24 +10,24 @@
 
 **Example:**
 
-````bash
+````docker
+# Move to Compose context
 cd ./dabble-project
+
+# Run Compose Up
 docker compose up -d 
 
-# for build
+# Run Compose and Build is optional
 docker compose up -d --build
-````
 
-Once the Compose run all containers, used one in the commands to check list healthy service
+# Review Docker ps
+docker ps 
 
-````bash
-docler compose ps | grep healthy
-````
-
-Stop all and remove containers is running
-
-````bash
+# Stop Compose
 docker compose down -v
+
+# Remove Containers
+docker rm -f $(docker ps -aq)
 ````
 
 Once Compose up is done and services already, if you want to monitoring the metrics Docker Engine and each service
