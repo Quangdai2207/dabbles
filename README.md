@@ -21,25 +21,21 @@ docker compose up -d --build
 Once the Compose run all containers, used one in the commands to check list healthy service
 
 ````bash
-docker compose ps
 docler compose ps | grep healthy
-docker ps -a | grep healthy
-docker container ls -a | grep healthy
 ````
 
 Stop all and remove containers is running
 
 ````bash
 docker compose down -v
-# Or use command:
-docker rm -f $(docker ps -aq)
-# Or remove images
-docker rmi -f $(docker images -aq)
 ````
 
 Once Compose up is done and services already, if you want to monitoring the metrics Docker Engine and each service
 specification, we can moving point browse:
-> http://localhost:3000
+
+````text
+http://localhost:3000
+````
 
 This's the Grafana Dashboard UI as we can monitoring the whole system distributed works through over time. Which is let
 you monitoring the metrics Docker Engine with HOST_IP within .env file. So, you can addition your host IP, but you
