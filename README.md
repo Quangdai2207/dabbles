@@ -54,12 +54,13 @@ When the whole containers process is done you can move on the browse 3366 or 866
 This project mini or share images, which was based-on microservices model but they're distributed monolithic with
 services:
 
-1. [admin](./admin)
-2. [server](./server)
-3. [client](./client)
-4. [app-migrations](./app-migrations)
-5. [app-test](./apps-test)
-6. [mobile](./mobile)
+| Services                               | Stacks                                          | Description         |
+|----------------------------------------|-------------------------------------------------|---------------------|
+| **[admin](./admin)**                   | BFF, Thymeleaf, JS, CSS, HTML                   | Webapp for admin    |
+| **[client](./client)**                 | Next.js 16 + React 19                           | Webapp for end-user |
+| **[server](./server)**                 | Spring Boot API + WebSocket + data integrations | Core APIs server    |
+| **[app-migrations](./app-migrations)** | maven                                           | Seeding data        |
+| **[mobile](./mobile)**                 | Dart, flutter_secure_storage, Dio               | Mobile app          |
 
 ## Structure
 
@@ -72,7 +73,7 @@ services:
         ├── mobile/             # Flutter app
         ├── server/             # Spring Boot API + WebSocket + data integrations
         ├── uploads/            # Images upload local
-        ├── docker-compose.yml  # Run services container
+        ├── docker-compose.yml  # Run with Compose
         └── README.md           # Documentation
 ```
 
