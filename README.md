@@ -17,9 +17,6 @@ cd ./dabble-project
 # Run Compose Up
 docker compose up -d 
 
-# Run Compose and Build is optional
-docker compose up -d --build
-
 # Review Docker ps
 docker ps 
 

@@ -1,5 +1,4 @@
 services:
-
   ## DATABASE
   db:
     image: mysql:8
