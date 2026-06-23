@@ -6,6 +6,8 @@ services:
     restart: always
     ports:
       - "3306:3306"
+
+    # Cau hinh bien moi truong tu Dockerfile MySql
     environment:
       MYSQL_DATABASE: ${DB_NAME}
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
@@ -37,11 +39,11 @@ services:
     ports:
       - "9042:9042"
     restart: always
+    # Mount Volume container Cassandra
     volumes:
       - cassandra-data:/var/lib/cassandra
     networks:
       - app-net
-
 
   ## SEEDING DATA
   migration:
@@ -65,6 +67,8 @@ services:
     image: daitran9999/core-dabble:v1.1.1
     ports:
       - "3366:3366"
+
+    # Cau hinh biien moi truong cho ung dung tu file application.properties
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/${DB_NAME}
       SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
@@ -121,6 +125,7 @@ services:
     image: daitran9999/prometheus:v1.1.0
     ports:
       - "9090:9090"
+    # Cau hinh bien moi truong tu Dockerfile
     environment:
       DOCKER_HOST: ${HOST_IP}
     networks:
@@ -131,6 +136,8 @@ services:
     image: daitran9999/grafana:v1.1.0
     ports:
       - "3000:3000"
+
+    # Cau hinh bien moi truong tu Dockerfile
     environment:
       - GF_USERS_DEFAULT_THEME=light
       - GF_AUTH_DISABLE_LOGIN_FORM=false
