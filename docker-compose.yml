@@ -125,7 +125,7 @@ services:
     image: daitran9999/prometheus:v1.1.0
     ports:
       - "9090:9090"
-    # Cau hinh bien moi truong tu Dockerfile
+    # Tao bien moi truong DOCKER_HOST cho container Prometheus va gan ip host tu bien moi truong Shell $HOST_IP
     environment:
       DOCKER_HOST: ${HOST_IP}
     networks:
@@ -137,7 +137,8 @@ services:
     ports:
       - "3000:3000"
 
-    # Cau hinh bien moi truong tu Dockerfile
+    # Cau hinh bien moi truong tu Dockerfile,
+    # Ghi de thay doi cac gia tri mac dinh cho bien truong Dockerfile grafana
     environment:
       - GF_USERS_DEFAULT_THEME=light
       - GF_AUTH_DISABLE_LOGIN_FORM=false
