@@ -1,0 +1,11 @@
+Create javadoc for Java source via maven
+
+    + Step 1: add dependency javadoc (View plugin javadoc at the path /Users/admin/Desktop/Projects_team/dabble-project/server/pom.xml)
+    + Step 2: cd the working dir contains pom.xml
+    + Step 3: Run command "mvn javadoc:javadoc"
+    + Step 4: At the target dir, looking for the "reports" folder, you can see the index.html file and then copy absolute path and paste on
+              URL browser to read.
+
+ Or you can create javadoc by javadoc CLI with syntax like example
+
+javadoc -sourcepath src/main/java -subpackages ti.dabble -d docs
