@@ -1,0 +1,14 @@
+services:
+
+  ## SERVER
+  server:
+    image: ${REGISTRY:-docker.io}/daitran9999/core-dabble:v2-build-${BUILD_NUMBER:-local}
+    networks:
+      - app-net
+
+  ## ADMIN SERVICE
+  admin:
+    image: ${REGISTRY:-docker.io}/daitran9999/admin-server:v2-build-${BUILD_NUMBER:-local}
+    networks:
+      - app-net
+

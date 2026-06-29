@@ -1,0 +1,150 @@
+services:
+  ## DATABASE
+  db:
+    image: mysql:8
+    container_name: db
+    restart: always
+    ports:
+      - "3306:3306"
+    # Cau hinh bien moi truong tu Dockerfile MySql
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - app-net
+    healthcheck:
+      test: ["CMD-SHELL", "mysql -uroot -p${DB_PASSWORD} -e 'SELECT 1'"]
+      interval: 5s
+      timeout: 10s
+      retries: 20
+
+  ## REDIS
+  redis:
+    image: redis:7
+    container_name: redis-cache
+    restart: always
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    ports:
+      - "6037:6379"
+    networks:
+      - app-net
+
+  # CASSANDRA
+  cassandra:
+    image: cassandra:4
+    container_name: cassandra-message
+    ports:
+      - "9042:9042"
+    restart: always
+    # Mount Volume container Cassandra
+    volumes:
+      - cassandra-data:/var/lib/cassandra
+    networks:
+      - app-net
+
+  ## SEEDING DATA
+  migration:
+    image: daitran9999/migration-data:v1.0.0
+    networks:
+      - app-net
+    ## waiting DB complete
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: on-failure
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "localhost" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  ## SERVER
+  server:
+    ports:
+      - "3366:3366"
+
+    # Cau hinh biien moi truong cho ung dung tu file application.properties
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+      SPRING_DATA_REDIS_PASSWORD: ${REDIS_PASSWORD}
+
+      SPRING_DATA_CASSANDRA_CONTACT_POINTS: cassandra
+      SPRING_DATA_CASSANDRA_PORT: 9042
+      SPRING_DATA_CASSANDRA_KEYSPACE_NAME: ${KEYSPACE}
+      SPRING_DATA_CASSANDRA_LOCAL_DATACENTER: datacenter1
+
+      SPRING_MAIL_USERNAME: ${GMAIL_USERNAME}
+      SPRING_MAIL_PASSWORD: ${GMAIL_PASSWORD}
+    # If container exit unexpectedly, Docker will restart
+    restart: on-failure
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:3366/actuator/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 90s
+    depends_on:
+      migration:
+        condition: service_completed_successfully
+      redis:
+        condition: service_started
+      cassandra:
+        condition: service_started
+
+
+  ## ADMIN SERVICE
+  admin:
+    ports:
+      - "8668:8668"
+    environment:
+      JWT_SecretKey: ${SECRETS}
+    depends_on:
+      server:
+        condition: service_healthy
+
+  # Add Prometheus
+  prometheus:
+    image: daitran9999/prometheus:v1.1.0
+    ports:
+      - "9090:9090"
+    # Tao bien moi truong DOCKER_HOST cho container Prometheus va gan ip host tu bien moi truong Shell $HOST_IP
+    environment:
+      DOCKER_HOST: ${HOST_IP}
+    networks:
+      - app-net
+
+  # Add Grafana Dashboard
+  grafana:
+    image: daitran9999/grafana:v1.1.0
+    ports:
+      - "3000:3000"
+
+    # Cau hinh bien moi truong tu Dockerfile,
+    # Ghi de thay doi cac gia tri mac dinh cho bien truong Dockerfile grafana
+    environment:
+      - GF_USERS_DEFAULT_THEME=light
+      - GF_AUTH_DISABLE_LOGIN_FORM=false
+      - GF_AUTH_ANONYMOUS_ENABLED=false
+    networks:
+      - app-net
+    depends_on:
+      - prometheus
+
+## Mount Volume Storage
+volumes:
+  db-data:
+  cassandra-data:
+
+## NETWORK
+networks:
+  app-net:
+    name: nat
+    external: true
+
