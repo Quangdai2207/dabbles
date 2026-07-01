@@ -1,10 +1,10 @@
 import {htmlPath} from "../../../pagesPath/paths.js";
 import initRoutes, {internalRouter} from "../../router.js";
-import reloadCaptcha from "../../../utils/captcha.js";
 
 export default function AUTH_FORM(path, mainContent) {
     let route = path;
 
+    // When the first time browser redirect AUTH_FORM function,
     if (!route.startsWith("/auth")) {
         route = "/auth/login";
         history.replaceState(null, "", route);
@@ -17,6 +17,7 @@ export default function AUTH_FORM(path, mainContent) {
         const authForm = $("#auth-form")
         if (!authForm) return;
 
+        // Init routerDom
         initRoutes(authForm)
         internalRouter(location.pathname, authForm)
     })

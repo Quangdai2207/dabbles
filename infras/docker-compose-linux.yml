@@ -1,4 +1,24 @@
 services:
   jenkins:
+    container_name: jenkins-blueocean-linux
+
+    environment:
+      DOCKER_HOST: tcp://docker:2376
+      DOCKER_CERT_PATH: /certs/client
+      DOCKER_TLS_VERIFY: "1"
+
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - jenkins-data:/var/jenkins_home
+      - jenkins-docker-certs:/certs/client:ro
+
+    networks:
+      - jenkins
+
+volumes:
+  jenkins-data:
+  jenkins-docker-certs:
+
+# De co the cho phep Container Jenkins tuong tac voi Docker Engine ta co the thuc hien theo 2 cach
+#   1. Mount truc tiep docker.sock tu Host vao Jenkins Container => /var/run/docker.sock:/var/run/docker.sock
+#   2. thuc hien nhu trong Demo hien tai, khai bao bien moi truong Docker va mount volumes jenkins_home va client:ro, dieu nay cho phep
+#      Jenkins co the CLI tuong tac voi Docker Engine.1

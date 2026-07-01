@@ -1,5 +1,10 @@
 services:
   jenkins:
-    image: jenkins/jenkins
+    image: my-jenkins-daitran:v1.1.0
+    restart: on-failure
     ports:
       - "8080:8080"
+      - "50000:50000"
+
+networks:
+  jenkins:
