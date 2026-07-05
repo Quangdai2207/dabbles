@@ -6,5 +6,12 @@ services:
       - "8080:8080"
       - "50000:50000"
 
+  docker_proxy:
+    container_name: docker_proxy
+    image: alpine/socat
+    restart: always
+    ports:
+      - "127.0.0.1:2376:2375"
+
 networks:
   jenkins:

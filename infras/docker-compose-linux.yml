@@ -1,4 +1,5 @@
 services:
+  # Container Jenkins
   jenkins:
     container_name: jenkins-blueocean-linux
 
@@ -14,9 +15,22 @@ services:
     networks:
       - jenkins
 
+  # Container Socat with mount TCP docker host via socker docker.sock
+  docker_proxy:
+    command: >
+      tcp-listen:2375,fork,reuseaddr
+      unix-connect:/var/run/docker.sock
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    networks:
+      - jenkins
+
 volumes:
   jenkins-data:
   jenkins-docker-certs:
+
 
 # De co the cho phep Container Jenkins tuong tac voi Docker Engine ta co the thuc hien theo 2 cach
 #   1. Mount truc tiep docker.sock tu Host vao Jenkins Container => /var/run/docker.sock:/var/run/docker.sock

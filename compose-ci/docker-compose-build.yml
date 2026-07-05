@@ -1,7 +1,7 @@
 x-args: &args
   args:
-    BUILD_NUMBER: ${BUILD_NUMBER:-0}
-    BUILD_TAG: ${BUILD_TAG:-local}
+    BUILD_NUMBER: ${BUILD_NUMBER:-0} # Bien nhan tu bien moi truong trong Jenkins
+    BUILD_TAG: ${BUILD_TAG:-local} # Bien nhan tu bien moi truong trong Jenkins
 
 services:
   server:

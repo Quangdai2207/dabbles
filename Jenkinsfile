@@ -1,12 +1,18 @@
 pipeline {
 	args any
 
+	triggers {
+		pollSCM '*/1 * * * *'
+	}
+
 	stages {
 		stage('Verify') {
 			steps {
 				dir('dabble-project') {
-					sh 'chmod +x ./ci/00-verify.sh'
-					sh './ci/00-verify.sh'
+					sh '''
+						chmod +x ./ci/00-verify.sh
+						./ci/00-verify.sh
+					'''
 				}
 			}
 		}
